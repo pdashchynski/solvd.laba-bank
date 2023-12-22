@@ -1,4 +1,4 @@
 package com.solvd.laba.database.dao.impl;
 
-public class ClientsDAO {
+public class DepartmentsDAOImpl {
 }

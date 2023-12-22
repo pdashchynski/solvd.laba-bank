@@ -101,4 +101,19 @@ public class Persons {
     public void setPassports_idpassports(int passports_idpassports) {
         this.passports_idpassports = passports_idpassports;
     }
+
+    @Override
+    public String toString() {
+        return "Persons{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", middle_name='" + middle_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", age=" + age +
+                ", date_of_birth=" + date_of_birth +
+                ", gender='" + gender + '\'' +
+                ", addresses_idaddresses=" + addresses_idaddresses +
+                ", passports_idpassports=" + passports_idpassports +
+                '}';
+    }
 }

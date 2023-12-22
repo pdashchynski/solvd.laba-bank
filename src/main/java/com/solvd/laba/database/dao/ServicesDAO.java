@@ -1,4 +1,4 @@
 package com.solvd.laba.database.dao;
 
-public interface AccountsRepository {
+public interface ServicesDAO {
 }
