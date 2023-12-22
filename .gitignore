@@ -25,6 +25,9 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
+### MyBatis
+**/resources/config.properties
+
 ### Mac
 .DS_Store
 

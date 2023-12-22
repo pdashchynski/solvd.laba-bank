@@ -4,24 +4,24 @@ import java.time.LocalDate;
 
 public class Passports {
 
-    private int idpassports;
+    private int id;
     private LocalDate from_date;
     private LocalDate to_date;
 
     public Passports () {}
 
-    public Passports (int idpassports, LocalDate from_date, LocalDate to_date) {
-        this.idpassports = idpassports;
+    public Passports (int id, LocalDate from_date, LocalDate to_date) {
+        this.id = id;
         this.from_date = from_date;
         this.to_date = to_date;
     }
 
-    public int getIdpassports() {
-        return idpassports;
+    public int getId() {
+        return id;
     }
 
-    public void setIdpassports(int idpassports) {
-        this.idpassports = idpassports;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getFrom_date() {

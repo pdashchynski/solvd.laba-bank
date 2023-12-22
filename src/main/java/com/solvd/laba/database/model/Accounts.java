@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Accounts {
 
-    private int idaccounts;
+    private int id;
     private LocalDate from_date;
     private LocalDate to_date;
     private int balance;
@@ -13,9 +13,9 @@ public class Accounts {
 
     public Accounts () {}
 
-    public Accounts (int idaccounts, LocalDate from_date, LocalDate to_date,
+    public Accounts (int id, LocalDate from_date, LocalDate to_date,
                      int balance, String currency, int clients_idclients) {
-        this.idaccounts = idaccounts;
+        this.id = id;
         this.from_date = from_date;
         this.to_date = to_date;
         this.balance = balance;
@@ -23,12 +23,12 @@ public class Accounts {
         this.clients_idclients = clients_idclients;
     }
 
-    public int getIdaccounts() {
-        return idaccounts;
+    public int getId() {
+        return id;
     }
 
-    public void setIdaccounts(int idaccounts) {
-        this.idaccounts = idaccounts;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getFrom_date() {

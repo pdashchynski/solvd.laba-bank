@@ -1,27 +1,25 @@
 package com.solvd.laba.database.model;
 
-import java.util.Date;
-
 public class Clients {
 
-    private int idclients;
+    private int id;
     private int persons_idpersons;
     private String status;
 
     public Clients () {}
 
-    public Clients (int idclients, int persons_idpersons, String status) {
-        this.idclients = idclients;
+    public Clients (int id, int persons_idpersons, String status) {
+        this.id = id;
         this.persons_idpersons = persons_idpersons;
         this.status = status;
     }
 
-    public int getIdclients() {
-        return idclients;
+    public int getId() {
+        return id;
     }
 
-    public void setIdclients(int idclients) {
-        this.idclients = idclients;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersons_idpersons() {

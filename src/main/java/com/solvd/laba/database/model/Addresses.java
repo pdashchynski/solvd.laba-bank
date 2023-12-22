@@ -2,26 +2,26 @@ package com.solvd.laba.database.model;
 
 public class Addresses {
 
-    private int idaddresses;
+    private int id;
     private String country;
     private String city;
     private String postal_code;
 
     public Addresses () {}
 
-    public Addresses (int idaddresses, String country, String city, String postal_code) {
-        this.idaddresses = idaddresses;
+    public Addresses (int id, String country, String city, String postal_code) {
+        this.id = id;
         this.country = country;
         this.city = city;
         this.postal_code = postal_code;
     }
 
-    public int getIdaddresses() {
-        return idaddresses;
+    public int getId() {
+        return id;
     }
 
-    public void setIdaddresses(int idaddresses) {
-        this.idaddresses = idaddresses;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCountry() {

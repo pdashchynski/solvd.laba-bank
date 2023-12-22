@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Transactions {
 
-    private int idtransactions;
+    private int id;
     private String type;
     private int amount;
     private String currency;
@@ -14,9 +14,9 @@ public class Transactions {
 
     public Transactions () {}
 
-    public Transactions (int idtransactions, String type, int amount, String currency,
-                        LocalDateTime date_time, int staff_idstaff, int services_idservices) {
-        this.idtransactions = idtransactions;
+    public Transactions (int id, String type, int amount, String currency,
+                         LocalDateTime date_time, int staff_idstaff, int services_idservices) {
+        this.id = id;
         this.type = type;
         this.amount = amount;
         this.currency = currency;
@@ -25,12 +25,12 @@ public class Transactions {
         this.services_idservices = services_idservices;
     }
 
-    public int getIdtransactions() {
-        return idtransactions;
+    public int getId() {
+        return id;
     }
 
-    public void setIdtransactions(int idtransactions) {
-        this.idtransactions = idtransactions;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getType() {

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Staff {
 
-    private int idstaff;
+    private int id;
     private int persons_idpersons;
     private LocalDate date_hired;
     private String position;
@@ -13,9 +13,9 @@ public class Staff {
 
     public Staff () {}
 
-    public Staff (int idstaff, int persons_idpersons, LocalDate date_hired,
+    public Staff (int id, int persons_idpersons, LocalDate date_hired,
                   String position, int salary, int departments_iddepartments) {
-        this.idstaff = idstaff;
+        this.id = id;
         this.persons_idpersons = persons_idpersons;
         this.date_hired = date_hired;
         this.position = position;
@@ -23,12 +23,12 @@ public class Staff {
         this.departments_iddepartments = departments_iddepartments;
     }
 
-    public int getIdstaff() {
-        return idstaff;
+    public int getId() {
+        return id;
     }
 
-    public void setIdstaff(int idstaff) {
-        this.idstaff = idstaff;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersons_idpersons() {

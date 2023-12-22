@@ -2,24 +2,24 @@ package com.solvd.laba.database.model;
 
 public class Services {
 
-    private int idservices;
+    private int id;
     private String name;
     private int price;
 
     public Services () {}
 
-    public Services (int idservices, String name, int price) {
-        this.idservices = idservices;
+    public Services (int id, String name, int price) {
+        this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public int getIdservices() {
-        return idservices;
+    public int getId() {
+        return id;
     }
 
-    public void setIdservices(int idservices) {
-        this.idservices = idservices;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

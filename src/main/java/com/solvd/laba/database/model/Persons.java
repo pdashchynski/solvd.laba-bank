@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Persons {
 
-    private int idperson;
+    private int id;
     private String first_name;
     private String middle_name;
     private String last_name;
@@ -16,10 +16,10 @@ public class Persons {
 
     public Persons () {}
 
-    public Persons (int idperson, String first_name, String middle_name, String last_name, short age,
+    public Persons (int id, String first_name, String middle_name, String last_name, short age,
                     LocalDate date_of_birth, String gender, int addresses_idaddresses,
                     int passports_idpassports) {
-        this.idperson = idperson;
+        this.id = id;
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
@@ -30,12 +30,12 @@ public class Persons {
         this.passports_idpassports = passports_idpassports;
     }
 
-    public int getIdperson() {
-        return idperson;
+    public int getId() {
+        return id;
     }
 
-    public void setIdperson(int idperson) {
-        this.idperson = idperson;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirst_name() {

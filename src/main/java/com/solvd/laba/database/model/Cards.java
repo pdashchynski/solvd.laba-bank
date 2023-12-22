@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Cards {
 
-    private int idcards;
+    private int id;
     private LocalDate from_date;
     private LocalDate to_date;
     private String type;
@@ -12,20 +12,20 @@ public class Cards {
 
     public Cards () {}
 
-    public Cards (int idcards, LocalDate from_date, LocalDate to_date, String type, int accounts_idaccounts) {
-        this.idcards = idcards;
+    public Cards (int id, LocalDate from_date, LocalDate to_date, String type, int accounts_idaccounts) {
+        this.id = id;
         this.from_date = from_date;
         this.to_date = to_date;
         this.type = type;
         this.accounts_idaccounts = accounts_idaccounts;
     }
 
-    public int getIdcards() {
-        return idcards;
+    public int getId() {
+        return id;
     }
 
-    public void setIdcards(int idcards) {
-        this.idcards = idcards;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getFrom_date() {
