@@ -5,10 +5,7 @@ import com.solvd.laba.database.dao.PersonsDAO;
 import com.solvd.laba.database.model.Persons;
 import com.solvd.laba.pooling.ConnectionPool;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +34,8 @@ public class PersonsDAOImpl implements GenericCRUD<Persons>, PersonsDAO {
             String middle_name = rs.getString("middle_name");
             String last_name = rs.getString("last_name");
             short age = rs.getShort("age");
-            //LocalDate date_of_birth = rs.getDate("date_of_birth", );
-            LocalDate date_of_birth = LocalDate.parse("2007-12-03");
+            Date date_of_birth = rs.getDate("date_of_birth");
+            //LocalDate date_of_birth = LocalDate.parse("2007-12-03");
             String gender = rs.getString("gender");
             int addresses_idaddresses = rs.getInt("id");
             int passports_idpassports = rs.getInt("id");
