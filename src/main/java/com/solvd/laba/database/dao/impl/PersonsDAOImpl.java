@@ -9,10 +9,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonsDAOImpl implements GenericCRUD<Persons>, PersonsDAO {
+public class PersonsDAOImpl implements PersonsDAO {
 
     @Override
-    public Persons get(long id) throws SQLException {
+    public Persons get(int id) throws SQLException {
         Connection connection = null;
         Persons person = null;
         String sql = "SELECT * FROM persons WHERE id =" + id;

@@ -5,19 +5,19 @@ import java.time.LocalDate;
 public class Cards {
 
     private int id;
-    private LocalDate from_date;
-    private LocalDate to_date;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     private String type;
-    private int accounts_idaccounts;
+    private int accountsId;
 
     public Cards () {}
 
-    public Cards (int id, LocalDate from_date, LocalDate to_date, String type, int accounts_idaccounts) {
+    public Cards (int id, LocalDate fromDate, LocalDate toDate, String type, int accountsId) {
         this.id = id;
-        this.from_date = from_date;
-        this.to_date = to_date;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.type = type;
-        this.accounts_idaccounts = accounts_idaccounts;
+        this.accountsId = accountsId;
     }
 
     public int getId() {
@@ -28,20 +28,20 @@ public class Cards {
         this.id = id;
     }
 
-    public LocalDate getFrom_date() {
-        return from_date;
+    public LocalDate getFromDate() {
+        return fromDate;
     }
 
-    public void setFrom_date(LocalDate from_date) {
-        this.from_date = from_date;
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public LocalDate getTo_date() {
-        return to_date;
+    public LocalDate getToDate() {
+        return toDate;
     }
 
-    public void setTo_date(LocalDate to_date) {
-        this.to_date = to_date;
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
     }
 
     public String getType() {
@@ -52,11 +52,11 @@ public class Cards {
         this.type = type;
     }
 
-    public int getAccounts_idaccounts() {
-        return accounts_idaccounts;
+    public int getAccountsId() {
+        return accountsId;
     }
 
-    public void setAccounts_idaccounts(int accounts_idaccounts) {
-        this.accounts_idaccounts = accounts_idaccounts;
+    public void setAccountsId(int accountsId) {
+        this.accountsId = accountsId;
     }
 }

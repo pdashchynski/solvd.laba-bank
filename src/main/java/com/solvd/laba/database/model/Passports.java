@@ -5,15 +5,15 @@ import java.time.LocalDate;
 public class Passports {
 
     private int id;
-    private LocalDate from_date;
-    private LocalDate to_date;
+    private LocalDate fromDate;
+    private LocalDate toDate;
 
     public Passports () {}
 
-    public Passports (int id, LocalDate from_date, LocalDate to_date) {
+    public Passports (int id, LocalDate fromDate, LocalDate toDate) {
         this.id = id;
-        this.from_date = from_date;
-        this.to_date = to_date;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
     public int getId() {
@@ -24,19 +24,19 @@ public class Passports {
         this.id = id;
     }
 
-    public LocalDate getFrom_date() {
-        return from_date;
+    public LocalDate getFromDate() {
+        return fromDate;
     }
 
-    public void setFrom_date(LocalDate from_date) {
-        this.from_date = from_date;
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public LocalDate getTo_date() {
-        return to_date;
+    public LocalDate getToDate() {
+        return toDate;
     }
 
-    public void setTo_date(LocalDate to_date) {
-        this.to_date = to_date;
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
     }
 }

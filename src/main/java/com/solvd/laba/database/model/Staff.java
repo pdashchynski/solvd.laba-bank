@@ -1,26 +1,26 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Staff {
 
     private int id;
-    private int persons_idpersons;
-    private LocalDate date_hired;
+    private int personsId;
+    private Date dateHired;
     private String position;
     private int salary;
-    private int departments_iddepartments;
+    private int departmentsId;
 
     public Staff () {}
 
-    public Staff (int id, int persons_idpersons, LocalDate date_hired,
-                  String position, int salary, int departments_iddepartments) {
+    public Staff (int id, int personsId, Date dateHired,
+                  String position, int salary, int departmentsId) {
         this.id = id;
-        this.persons_idpersons = persons_idpersons;
-        this.date_hired = date_hired;
+        this.personsId = personsId;
+        this.dateHired = dateHired;
         this.position = position;
         this.salary = salary;
-        this.departments_iddepartments = departments_iddepartments;
+        this.departmentsId = departmentsId;
     }
 
     public int getId() {
@@ -31,20 +31,20 @@ public class Staff {
         this.id = id;
     }
 
-    public int getPersons_idpersons() {
-        return persons_idpersons;
+    public int getPersonsId() {
+        return personsId;
     }
 
-    public void setPersons_idpersons(int persons_idpersons) {
-        this.persons_idpersons = persons_idpersons;
+    public void setPersonsId(int personsId) {
+        this.personsId = personsId;
     }
 
-    public LocalDate getDate_hired() {
-        return date_hired;
+    public Date getDateHired() {
+        return dateHired;
     }
 
-    public void setDate_hired(LocalDate date_hired) {
-        this.date_hired = date_hired;
+    public void setDateHired(Date dateHired) {
+        this.dateHired = dateHired;
     }
 
     public String getPosition() {
@@ -63,11 +63,11 @@ public class Staff {
         this.salary = salary;
     }
 
-    public int getDepartments_iddepartments() {
-        return departments_iddepartments;
+    public int getDepartmentsId() {
+        return departmentsId;
     }
 
-    public void setDepartments_iddepartments(int departments_iddepartments) {
-        this.departments_iddepartments = departments_iddepartments;
+    public void setDepartmentsId(int departmentsId) {
+        this.departmentsId = departmentsId;
     }
 }

@@ -1,26 +1,26 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Accounts {
 
     private int id;
-    private LocalDate from_date;
-    private LocalDate to_date;
+    private Date fromDate;
+    private Date toDate;
     private int balance;
     private String currency;
-    private int clients_idclients;
+    private int clientsId;
 
     public Accounts () {}
 
-    public Accounts (int id, LocalDate from_date, LocalDate to_date,
-                     int balance, String currency, int clients_idclients) {
+    public Accounts (int id, Date fromDate, Date toDate,
+                     int balance, String currency, int clientsId) {
         this.id = id;
-        this.from_date = from_date;
-        this.to_date = to_date;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.balance = balance;
         this.currency = currency;
-        this.clients_idclients = clients_idclients;
+        this.clientsId = clientsId;
     }
 
     public int getId() {
@@ -31,20 +31,20 @@ public class Accounts {
         this.id = id;
     }
 
-    public LocalDate getFrom_date() {
-        return from_date;
+    public Date getFromDate() {
+        return fromDate;
     }
 
-    public void setFrom_date(LocalDate from_date) {
-        this.from_date = from_date;
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public LocalDate getTo_date() {
-        return to_date;
+    public Date getToDate() {
+        return toDate;
     }
 
-    public void setTo_date(LocalDate to_date) {
-        this.to_date = to_date;
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 
     public int getBalance() {
@@ -63,11 +63,11 @@ public class Accounts {
         this.currency = currency;
     }
 
-    public int getClients_idclients() {
-        return clients_idclients;
+    public int getClientsId() {
+        return clientsId;
     }
 
-    public void setClients_idclients(int clients_idclients) {
-        this.clients_idclients = clients_idclients;
+    public void setClientsId(int clientsId) {
+        this.clientsId = clientsId;
     }
 }

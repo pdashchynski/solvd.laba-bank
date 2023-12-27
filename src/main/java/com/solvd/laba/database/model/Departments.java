@@ -3,14 +3,14 @@ package com.solvd.laba.database.model;
 public class Departments {
 
     private int id;
-    private int addresses_idaddresses;
+    private int addressesId;
     private String schedule;
 
     public Departments () {}
 
-    public Departments (int id, int addresses_idaddresses, String schedule) {
+    public Departments (int id, int addressesId, String schedule) {
         this.id = id;
-        this.addresses_idaddresses = addresses_idaddresses;
+        this.addressesId = addressesId;
         this.schedule = schedule;
     }
 
@@ -22,12 +22,12 @@ public class Departments {
         this.id = id;
     }
 
-    public int getAddresses_idaddresses() {
-        return addresses_idaddresses;
+    public int getAddressesId() {
+        return addressesId;
     }
 
-    public void setAddresses_idaddresses(int addresses_idaddresses) {
-        this.addresses_idaddresses = addresses_idaddresses;
+    public void setAddressesId(int addressesId) {
+        this.addressesId = addressesId;
     }
 
     public String getSchedule() {

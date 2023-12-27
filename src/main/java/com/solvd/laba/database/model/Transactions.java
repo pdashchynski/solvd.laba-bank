@@ -8,21 +8,21 @@ public class Transactions {
     private String type;
     private int amount;
     private String currency;
-    private LocalDateTime date_time;
-    private int staff_idstaff;
-    private int services_idservices;
+    private LocalDateTime dateTime;
+    private int staffId;
+    private int servicesId;
 
     public Transactions () {}
 
     public Transactions (int id, String type, int amount, String currency,
-                         LocalDateTime date_time, int staff_idstaff, int services_idservices) {
+                         LocalDateTime dateTime, int staffId, int servicesId) {
         this.id = id;
         this.type = type;
         this.amount = amount;
         this.currency = currency;
-        this.date_time = date_time;
-        this.staff_idstaff = staff_idstaff;
-        this.services_idservices = services_idservices;
+        this.dateTime = dateTime;
+        this.staffId = staffId;
+        this.servicesId = servicesId;
     }
 
     public int getId() {
@@ -57,27 +57,27 @@ public class Transactions {
         this.currency = currency;
     }
 
-    public LocalDateTime getDate_time() {
-        return date_time;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate_time(LocalDateTime date_time) {
-        this.date_time = date_time;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public int getStaff_idstaff() {
-        return staff_idstaff;
+    public int getStaffId() {
+        return staffId;
     }
 
-    public void setStaff_idstaff(int staff_idstaff) {
-        this.staff_idstaff = staff_idstaff;
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
 
-    public int getServices_idservices() {
-        return services_idservices;
+    public int getServicesId() {
+        return servicesId;
     }
 
-    public void setServices_idservices(int services_idservices) {
-        this.services_idservices = services_idservices;
+    public void setServicesId(int servicesId) {
+        this.servicesId = servicesId;
     }
 }

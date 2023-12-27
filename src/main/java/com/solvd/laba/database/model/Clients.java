@@ -3,14 +3,14 @@ package com.solvd.laba.database.model;
 public class Clients {
 
     private int id;
-    private int persons_idpersons;
+    private int personsId;
     private String status;
 
     public Clients () {}
 
-    public Clients (int id, int persons_idpersons, String status) {
+    public Clients (int id, int personsId, String status) {
         this.id = id;
-        this.persons_idpersons = persons_idpersons;
+        this.personsId = personsId;
         this.status = status;
     }
 
@@ -22,12 +22,12 @@ public class Clients {
         this.id = id;
     }
 
-    public int getPersons_idpersons() {
-        return persons_idpersons;
+    public int getPersonsId() {
+        return personsId;
     }
 
-    public void setPersons_idpersons(int persons_idpersons) {
-        this.persons_idpersons = persons_idpersons;
+    public void setPersonsId(int personsId) {
+        this.personsId = personsId;
     }
 
     public String getStatus() {
