@@ -6,15 +6,13 @@ import com.solvd.laba.database.model.Persons;
 import com.solvd.laba.pooling.ConnectionPool;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class PersonsDAOImpl implements GenericCRUD<Persons>, PersonsDAO {
 
     @Override
-    public Optional<Persons> get(long id) throws SQLException {
+    public Persons get(long id) throws SQLException {
         Connection connection = null;
         Persons person = null;
         String sql = "SELECT * FROM persons WHERE id =" + id;
@@ -35,7 +33,6 @@ public class PersonsDAOImpl implements GenericCRUD<Persons>, PersonsDAO {
             String last_name = rs.getString("last_name");
             short age = rs.getShort("age");
             Date date_of_birth = rs.getDate("date_of_birth");
-            //LocalDate date_of_birth = LocalDate.parse("2007-12-03");
             String gender = rs.getString("gender");
             int addresses_idaddresses = rs.getInt("id");
             int passports_idpassports = rs.getInt("id");
@@ -50,7 +47,7 @@ public class PersonsDAOImpl implements GenericCRUD<Persons>, PersonsDAO {
             throw new RuntimeException(e);
         }
 
-        return Optional.ofNullable(person);
+        return person;
     }
 
     @Override
@@ -74,8 +71,7 @@ public class PersonsDAOImpl implements GenericCRUD<Persons>, PersonsDAO {
             String middle_name = rs.getString("middle_name");
             String last_name = rs.getString("last_name");
             short age = rs.getShort("age");
-            //LocalDate date_of_birth = rs.getDate("date_of_birth", );
-            LocalDate date_of_birth = LocalDate.parse("2007-12-03");
+            Date date_of_birth = rs.getDate("date_of_birth");
             String gender = rs.getString("gender");
             int addresses_idaddresses = rs.getInt("id");
             int passports_idpassports = rs.getInt("id");

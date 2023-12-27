@@ -24,7 +24,7 @@ public class Executor {
         for(Persons person : personsList) {
             System.out.println(person.toString());
         }
-        Optional<Persons> person = null;
+        Persons person = null;
         try {
             person = personsDAO.get(1);
         } catch (SQLException e) {

@@ -1,4 +1,6 @@
 package com.solvd.laba.database.dao;
 
-public interface CardsDAO {
+import com.solvd.laba.database.model.Cards;
+
+public interface CardsDAO extends GenericCRUD<Cards> {
 }

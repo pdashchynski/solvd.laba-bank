@@ -1,5 +1,7 @@
 package com.solvd.laba.database.dao;
 
-public interface AccountsDAO {
+import com.solvd.laba.database.model.Accounts;
+
+public interface AccountsDAO extends GenericCRUD<Accounts> {
 
 }

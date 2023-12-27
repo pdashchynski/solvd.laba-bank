@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface GenericCRUD<T> {
 
-    Optional<T> get(long id) throws SQLException;
+    T get(long id) throws SQLException;
 
     List<T> getAll() throws SQLException;
 

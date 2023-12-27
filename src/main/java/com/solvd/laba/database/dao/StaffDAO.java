@@ -1,4 +1,6 @@
 package com.solvd.laba.database.dao;
 
-public interface StaffDAO {
+import com.solvd.laba.database.model.Staff;
+
+public interface StaffDAO extends GenericCRUD<Staff> {
 }

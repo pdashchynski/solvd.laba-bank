@@ -1,4 +1,6 @@
 package com.solvd.laba.database.dao;
 
-public interface PassportsDAO {
+import com.solvd.laba.database.model.Passports;
+
+public interface PassportsDAO extends GenericCRUD<Passports> {
 }

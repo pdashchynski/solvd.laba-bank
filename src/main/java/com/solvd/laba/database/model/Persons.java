@@ -1,5 +1,6 @@
 package com.solvd.laba.database.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Persons {
@@ -9,7 +10,7 @@ public class Persons {
     private String middle_name;
     private String last_name;
     private short age;
-    private LocalDate date_of_birth;
+    private Date date_of_birth;
     private String gender;
     private int addresses_idaddresses;
     private int passports_idpassports;
@@ -17,7 +18,7 @@ public class Persons {
     public Persons () {}
 
     public Persons (int id, String first_name, String middle_name, String last_name, short age,
-                    LocalDate date_of_birth, String gender, int addresses_idaddresses,
+                    Date date_of_birth, String gender, int addresses_idaddresses,
                     int passports_idpassports) {
         this.id = id;
         this.first_name = first_name;
@@ -70,11 +71,11 @@ public class Persons {
         this.age = age;
     }
 
-    public LocalDate getDate_of_birth() {
+    public Date getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
+    public void setDate_of_birth(Date date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 
