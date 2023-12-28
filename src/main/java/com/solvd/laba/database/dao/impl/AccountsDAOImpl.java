@@ -99,7 +99,7 @@ public class AccountsDAOImpl implements AccountsDAO {
         ResultSet rs = ps.executeQuery();
 
         if (rs.next()) {
-            update(account);
+            //update(account);
         } else {
             insert(account);
         }
@@ -140,7 +140,7 @@ public class AccountsDAOImpl implements AccountsDAO {
     }
 
     @Override
-    public void update(Accounts account, String[] params) throws SQLException {
+    public void update(Accounts account, int id) throws SQLException {
         Connection connection = null;
         try {
             connection = ConnectionPool.getConnection();
@@ -172,12 +172,8 @@ public class AccountsDAOImpl implements AccountsDAO {
         }
     }
 
-    private <T> void updateT(T t) {
-        
-    }
-
     @Override
-    public void delete(Accounts account) throws SQLException {
+    public void delete(int id) throws SQLException {
         Connection connection = null;
         try {
             connection = ConnectionPool.getConnection();
@@ -188,7 +184,7 @@ public class AccountsDAOImpl implements AccountsDAO {
         String sql = "DELETE FROM accounts WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
 
-        ps.setInt(1, account.getId());
+        ps.setInt(1, id);
         ps.executeUpdate();
 
         try {

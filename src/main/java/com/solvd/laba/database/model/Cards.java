@@ -1,18 +1,18 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Cards {
 
     private int id;
-    private LocalDate fromDate;
-    private LocalDate toDate;
+    private Date fromDate;
+    private Date toDate;
     private String type;
     private int accountsId;
 
     public Cards () {}
 
-    public Cards (int id, LocalDate fromDate, LocalDate toDate, String type, int accountsId) {
+    public Cards (int id, Date fromDate, Date toDate, String type, int accountsId) {
         this.id = id;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -28,19 +28,19 @@ public class Cards {
         this.id = id;
     }
 
-    public LocalDate getFromDate() {
+    public Date getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDate fromDate) {
+    public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDate getToDate() {
+    public Date getToDate() {
         return toDate;
     }
 
-    public void setToDate(LocalDate toDate) {
+    public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
 

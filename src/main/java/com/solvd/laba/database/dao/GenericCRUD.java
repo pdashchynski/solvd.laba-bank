@@ -13,7 +13,7 @@ public interface GenericCRUD<T> {
 
     void insert(T t) throws SQLException;
 
-    void update(T t, String[] params) throws SQLException;
+    void update(T t, int id) throws SQLException;
 
-    void delete(T t) throws SQLException;
+    void delete(int id) throws SQLException;
 }

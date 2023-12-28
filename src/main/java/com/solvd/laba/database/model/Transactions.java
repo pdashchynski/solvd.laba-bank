@@ -1,5 +1,6 @@
 package com.solvd.laba.database.model;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Transactions {
@@ -8,14 +9,14 @@ public class Transactions {
     private String type;
     private int amount;
     private String currency;
-    private LocalDateTime dateTime;
+    private Timestamp dateTime;
     private int staffId;
     private int servicesId;
 
     public Transactions () {}
 
     public Transactions (int id, String type, int amount, String currency,
-                         LocalDateTime dateTime, int staffId, int servicesId) {
+                         Timestamp dateTime, int staffId, int servicesId) {
         this.id = id;
         this.type = type;
         this.amount = amount;
@@ -57,11 +58,11 @@ public class Transactions {
         this.currency = currency;
     }
 
-    public LocalDateTime getDateTime() {
+    public Timestamp getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(Timestamp dateTime) {
         this.dateTime = dateTime;
     }
 

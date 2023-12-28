@@ -1,16 +1,16 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Passports {
 
     private int id;
-    private LocalDate fromDate;
-    private LocalDate toDate;
+    private Date fromDate;
+    private Date toDate;
 
     public Passports () {}
 
-    public Passports (int id, LocalDate fromDate, LocalDate toDate) {
+    public Passports (int id, Date fromDate, Date toDate) {
         this.id = id;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -24,19 +24,19 @@ public class Passports {
         this.id = id;
     }
 
-    public LocalDate getFromDate() {
+    public Date getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDate fromDate) {
+    public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDate getToDate() {
+    public Date getToDate() {
         return toDate;
     }
 
-    public void setToDate(LocalDate toDate) {
+    public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
 }
