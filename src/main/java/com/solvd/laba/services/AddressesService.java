@@ -3,8 +3,11 @@ package com.solvd.laba.services;
 import com.solvd.laba.database.dao.AddressesDAO;
 import com.solvd.laba.database.dao.impl.jdbc.JDBCAddressesDAOImpl;
 import com.solvd.laba.database.dao.impl.mybatis.MyBatisAddressesDAOImpl;
+import com.solvd.laba.database.model.Accounts;
 import com.solvd.laba.database.model.Addresses;
+import com.solvd.laba.database.model.Clients;
 
+import java.sql.Date;
 import java.util.List;
 
 import static com.solvd.laba.services.SwitcherService.isJdbcOn;
@@ -19,6 +22,16 @@ public class AddressesService implements GenericCRUDService<Addresses> {
         } else {
             this.dao = new MyBatisAddressesDAOImpl();
         }
+    }
+
+    public Addresses create(int id, String country, String city, String postalCode) {
+        Addresses address = new Addresses();
+        address.setId(id);
+        address.setCountry(country);
+        address.setCity(city);
+        address.setPostalCode(postalCode);
+
+        return address;
     }
 
     @Override

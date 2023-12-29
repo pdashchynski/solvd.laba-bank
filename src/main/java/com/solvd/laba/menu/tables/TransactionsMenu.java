@@ -1,10 +1,14 @@
 package com.solvd.laba.menu.tables;
 
+import com.solvd.laba.database.model.Staff;
+import com.solvd.laba.database.model.Transactions;
 import com.solvd.laba.services.CardsService;
 import com.solvd.laba.services.TransactionsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 public class TransactionsMenu {
@@ -27,22 +31,22 @@ public class TransactionsMenu {
 
             switch (input) {
                 case 1:
-                    ts.get();
+                    print();
                     break;
                 case 2:
-                    ts.getAll();
+                    printAll();
                     break;
                 case 3:
-                    ts.save();
+                    save();
                     break;
                 case 4:
-                    ts.insert();
+                    insert();
                     break;
                 case 5:
-                    ts.update();
+                    update();
                     break;
                 case 6:
-                    ts.delete();
+                    delete();
                     break;
                 case 0:
                     isExit = true;
@@ -53,5 +57,51 @@ public class TransactionsMenu {
                     break;
             }
         }
+    }
+
+    private void print() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info(ts.get(id).toString());
+    }
+
+    private void printAll() {
+        LOGGER.info(ts.getAll().toString());
+    }
+
+    private Transactions create() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info("Enter Type");
+        String type = sc.nextLine();
+        LOGGER.info("Enter Amount");
+        int amount = sc.nextInt();
+        LOGGER.info("Enter Currency");
+        String currency = sc.nextLine();
+        LOGGER.info("Enter Date Hired (YYYY-MM-DD HH:MI:SS)");
+        Timestamp dateTime = Timestamp.valueOf(sc.nextLine());
+        LOGGER.info("Enter Staff ID");
+        int staffId = sc.nextInt();
+        LOGGER.info("Enter Service ID");
+        int serviceId = sc.nextInt();
+        return ts.create(id, type, amount, currency, dateTime, staffId, serviceId);
+    }
+
+    private void save() {
+        ts.save(create());
+    }
+
+    private void insert() {
+        ts.insert(create());
+    }
+
+    private void update() {
+        ts.update(create());
+    }
+
+    private void delete() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        ts.delete(id);
     }
 }

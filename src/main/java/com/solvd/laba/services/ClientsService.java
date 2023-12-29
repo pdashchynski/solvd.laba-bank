@@ -4,6 +4,7 @@ import com.solvd.laba.database.dao.ClientsDAO;
 import com.solvd.laba.database.dao.impl.jdbc.JDBCClientsDAOImpl;
 import com.solvd.laba.database.dao.impl.mybatis.MyBatisClientsDAOImpl;
 import com.solvd.laba.database.model.Clients;
+import com.solvd.laba.database.model.Persons;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ import static com.solvd.laba.services.SwitcherService.isJdbcOn;
 public class ClientsService implements GenericCRUDService<Clients> {
 
     private final ClientsDAO dao;
+    private static final PersonsService PERSONS_SERVICE = new PersonsService();
+
 
     public ClientsService() {
         if (isJdbcOn()) {
@@ -19,6 +22,16 @@ public class ClientsService implements GenericCRUDService<Clients> {
         } else {
             this.dao = new MyBatisClientsDAOImpl();
         }
+    }
+
+    public Clients create(int id, int personId, String status) {
+        Clients client = new Clients();
+        client.setId(id);
+        Persons person = PERSONS_SERVICE.get(personId);
+        client.setPerson(person);
+        client.setStatus(status);
+
+        return client;
     }
 
     @Override

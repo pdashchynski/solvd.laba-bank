@@ -80,4 +80,17 @@ public class Transactions {
     public void setService(Services service) {
         this.service = service;
     }
+
+    @Override
+    public String toString() {
+        return "Transactions{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", amount=" + amount +
+                ", currency='" + currency + '\'' +
+                ", dateTime=" + dateTime +
+                ", staff=" + staff +
+                ", service=" + service +
+                '}';
+    }
 }

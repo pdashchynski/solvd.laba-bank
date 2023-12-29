@@ -49,4 +49,14 @@ public class Passports {
     public void setPerson(Persons person) {
         this.person = person;
     }
+
+    @Override
+    public String toString() {
+        return "Passports{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", person=" + person +
+                '}';
+    }
 }

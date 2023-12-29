@@ -37,4 +37,13 @@ public class Clients {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Clients{" +
+                "id=" + id +
+                ", person=" + person +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

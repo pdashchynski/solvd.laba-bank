@@ -4,7 +4,9 @@ import com.solvd.laba.database.dao.AccountsDAO;
 import com.solvd.laba.database.dao.impl.jdbc.JDBCAccountsDAOImpl;
 import com.solvd.laba.database.dao.impl.mybatis.MyBatisAccountsDAOImpl;
 import com.solvd.laba.database.model.Accounts;
+import com.solvd.laba.database.model.Clients;
 
+import java.sql.Date;
 import java.util.List;
 
 import static com.solvd.laba.services.SwitcherService.*;
@@ -12,6 +14,7 @@ import static com.solvd.laba.services.SwitcherService.*;
 public class AccountsService implements GenericCRUDService<Accounts> {
 
     private final AccountsDAO dao;
+    private static final ClientsService CLIENTS_SERVICE = new ClientsService();
 
     public AccountsService() {
         if (isJdbcOn()) {
@@ -19,6 +22,20 @@ public class AccountsService implements GenericCRUDService<Accounts> {
         } else {
             this.dao = new MyBatisAccountsDAOImpl();
         }
+    }
+
+    public Accounts create(int id, Date fromDate, Date toDate, int balance,
+                           String currency, int clientId) {
+        Accounts account = new Accounts();
+        account.setId(id);
+        account.setFromDate(fromDate);
+        account.setToDate(toDate);
+        account.setBalance(balance);
+        account.setCurrency(currency);
+        Clients client = CLIENTS_SERVICE.get(clientId);
+        account.setClient(client);
+
+        return account;
     }
 
     @Override

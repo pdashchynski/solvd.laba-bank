@@ -15,7 +15,17 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.AccountsMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.AddressesMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.CardsMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.ClientsMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.DepartmentsMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.PassportsMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.PersonsMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.ServicesMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.StaffMapper"/>
+        <mapper class="com.solvd.laba.database.dao.impl.mybatis.mappers.TransactionsMapper"/>
     </mappers>
 </configuration>

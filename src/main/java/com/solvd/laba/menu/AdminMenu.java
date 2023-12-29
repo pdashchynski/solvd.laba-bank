@@ -1,14 +1,38 @@
 package com.solvd.laba.menu;
 
+import com.solvd.laba.menu.tables.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class AdminMenu {
 
     private static final Logger LOGGER = LogManager.getLogger(AdminMenu.class);
     private final Scanner sc;
+    private static final Properties PROPERTIES = new Properties();
+    private static final String PATH = "src/main/resources/config.properties";
+    private final AccountsMenu accountsMenu = new AccountsMenu();
+    private final AddressesMenu addressesMenu = new AddressesMenu();
+    private final CardsMenu cardsMenu = new CardsMenu();
+    private final ClientsMenu clientsMenu = new ClientsMenu();
+    private final DepartmentsMenu departmentsMenu = new DepartmentsMenu();
+    private final PassportsMenu passportsMenu = new PassportsMenu();
+    private final PersonsMenu personsMenu = new PersonsMenu();
+    private final ServicesMenu servicesMenu = new ServicesMenu();
+    private final StaffMenu staffMenu = new StaffMenu();
+    private final TransactionsMenu transactionsMenu = new TransactionsMenu();
+
+    static {
+        try {
+            PROPERTIES.load(new FileInputStream(PATH));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public AdminMenu() {
         this.sc = new Scanner(System.in);
@@ -43,6 +67,21 @@ public class AdminMenu {
         }
     }
 
+    private void login() {
+        String username = PROPERTIES.getProperty("username");
+        String password = PROPERTIES.getProperty("password");
+
+        LOGGER.info("Please Enter the Username");
+        String usernameInput = sc.nextLine();
+        if (usernameInput.equals(username)) {
+            LOGGER.info("Please Enter the Password");
+            String passwordInput = sc.nextLine();
+            if (passwordInput.equals(password)) {
+                loggedInMenu();
+            }
+        }
+    }
+
     private void loggedInMenu() {
         boolean isExit = false;
         int input;
@@ -71,7 +110,8 @@ public class AdminMenu {
         }
     }
 
-    private void operationsSubMenu() {}
+    private void operationsSubMenu() {
+    }
 
     private void tablesSubMenu() {
         boolean isExit = false;
@@ -93,34 +133,34 @@ public class AdminMenu {
 
             switch (input) {
                 case 1:
-                    ;
+                    accountsMenu.display();
                     break;
                 case 2:
-                    tablesSubMenu();
+                    addressesMenu.display();
                     break;
                 case 3:
-                    tablesSubMenu();
+                    cardsMenu.display();
                     break;
                 case 4:
-                    tablesSubMenu();
+                    clientsMenu.display();
                     break;
                 case 5:
-                    tablesSubMenu();
+                    departmentsMenu.display();
                     break;
                 case 6:
-                    tablesSubMenu();
+                    passportsMenu.display();
                     break;
                 case 7:
-                    tablesSubMenu();
+                    personsMenu.display();
                     break;
                 case 8:
-                    tablesSubMenu();
+                    servicesMenu.display();
                     break;
                 case 9:
-                    tablesSubMenu();
+                    staffMenu.display();
                     break;
                 case 10:
-                    tablesSubMenu();
+                    transactionsMenu.display();
                     break;
                 case 0:
                     isExit = true;

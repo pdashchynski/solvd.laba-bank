@@ -70,4 +70,16 @@ public class Staff {
     public void setDepartment(Departments department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "id=" + id +
+                ", dateHired=" + dateHired +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", person=" + person +
+                ", department=" + department +
+                '}';
+    }
 }

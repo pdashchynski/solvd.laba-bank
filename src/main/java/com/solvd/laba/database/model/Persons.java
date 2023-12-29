@@ -95,13 +95,13 @@ public class Persons {
     public String toString() {
         return "Persons{" +
                 "id=" + id +
-                ", first_name='" + firstName + '\'' +
-                ", middle_name='" + middleName + '\'' +
-                ", last_name='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
-                ", date_of_birth=" + dateOfBirth +
+                ", dateOfBirth=" + dateOfBirth +
                 ", gender='" + gender + '\'' +
-                ", addressesId=" + address +
+                ", address=" + address +
                 '}';
     }
 }

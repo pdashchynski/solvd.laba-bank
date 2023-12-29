@@ -1,9 +1,11 @@
 package com.solvd.laba.menu.tables;
 
+import com.solvd.laba.database.model.Accounts;
 import com.solvd.laba.services.AccountsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 public class AccountsMenu {
@@ -26,22 +28,22 @@ public class AccountsMenu {
 
             switch (input) {
                 case 1:
-                    as.get();
+                    print();
                     break;
                 case 2:
-                    as.getAll();
+                    printAll();
                     break;
                 case 3:
-                    as.save();
+                    save();
                     break;
                 case 4:
-                    as.insert();
+                    insert();
                     break;
                 case 5:
-                    as.update();
+                    update();
                     break;
                 case 6:
-                    as.delete();
+                    delete();
                     break;
                 case 0:
                     isExit = true;
@@ -52,5 +54,49 @@ public class AccountsMenu {
                     break;
             }
         }
+    }
+
+    private void print() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info(as.get(id).toString());
+    }
+
+    private void printAll() {
+        LOGGER.info(as.getAll().toString());
+    }
+
+    private Accounts create() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info("Enter From Date (YYYY-MM-DD)");
+        Date fromDate = Date.valueOf(sc.nextLine());
+        LOGGER.info("Enter To Date (YYYY-MM-DD)");
+        Date toDate = Date.valueOf(sc.nextLine());
+        LOGGER.info("Enter Balance");
+        int balance = sc.nextInt();
+        LOGGER.info("Enter Currency");
+        String currency = sc.nextLine();
+        LOGGER.info("Enter Client ID");
+        int clientId = sc.nextInt();
+        return as.create(id, fromDate, toDate, balance, currency, clientId);
+    }
+
+    private void save() {
+        as.save(create());
+    }
+
+    private void insert() {
+        as.insert(create());
+    }
+
+    private void update() {
+        as.update(create());
+    }
+
+    private void delete() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        as.delete(id);
     }
 }

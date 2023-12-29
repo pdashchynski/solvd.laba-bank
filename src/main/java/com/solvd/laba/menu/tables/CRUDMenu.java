@@ -9,8 +9,8 @@ public class CRUDMenu {
 
     public static void display(String tableName) {
         LOGGER.info(tableName + " CRUD Menu");
-        LOGGER.info("1 - Get");
-        LOGGER.info("2 - Get All");
+        LOGGER.info("1 - Print");
+        LOGGER.info("2 - Print All");
         LOGGER.info("3 - Save");
         LOGGER.info("4 - Insert");
         LOGGER.info("5 - Update");

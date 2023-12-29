@@ -1,9 +1,13 @@
 package com.solvd.laba.menu.tables;
 
+import com.solvd.laba.database.model.Departments;
+import com.solvd.laba.database.model.Passports;
 import com.solvd.laba.services.PassportsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Scanner;
 
 public class PassportsMenu {
@@ -26,22 +30,22 @@ public class PassportsMenu {
 
             switch (input) {
                 case 1:
-                    ps.get();
+                    print();
                     break;
                 case 2:
-                    ps.getAll();
+                    printAll();
                     break;
                 case 3:
-                    ps.save();
+                    save();
                     break;
                 case 4:
-                    ps.insert();
+                    insert();
                     break;
                 case 5:
-                    ps.update();
+                    update();
                     break;
                 case 6:
-                    ps.delete();
+                    delete();
                     break;
                 case 0:
                     isExit = true;
@@ -52,5 +56,45 @@ public class PassportsMenu {
                     break;
             }
         }
+    }
+
+    private void print() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info(ps.get(id).toString());
+    }
+
+    private void printAll() {
+        LOGGER.info(ps.getAll().toString());
+    }
+
+    private Passports create() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info("Enter From Date (YYYY-MM-DD)");
+        Date fromDate = Date.valueOf(sc.nextLine());
+        LOGGER.info("Enter To Date (YYYY-MM-DD)");
+        Date toDate = Date.valueOf(sc.nextLine());
+        LOGGER.info("Enter Person ID");
+        int personId = sc.nextInt();
+        return ps.create(id, fromDate, toDate, personId);
+    }
+
+    private void save() {
+        ps.save(create());
+    }
+
+    private void insert() {
+        ps.insert(create());
+    }
+
+    private void update() {
+        ps.update(create());
+    }
+
+    private void delete() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        ps.delete(id);
     }
 }

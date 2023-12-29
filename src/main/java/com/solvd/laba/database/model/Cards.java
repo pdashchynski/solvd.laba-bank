@@ -59,4 +59,15 @@ public class Cards {
     public void setAccount(Accounts account) {
         this.account = account;
     }
+
+    @Override
+    public String toString() {
+        return "Cards{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", type='" + type + '\'' +
+                ", account=" + account +
+                '}';
+    }
 }

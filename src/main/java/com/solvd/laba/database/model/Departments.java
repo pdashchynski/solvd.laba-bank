@@ -49,4 +49,14 @@ public class Departments {
     public void setCloseTime(Time closeTime) {
         this.closeTime = closeTime;
     }
+
+    @Override
+    public String toString() {
+        return "Departments{" +
+                "id=" + id +
+                ", address=" + address +
+                ", openTime=" + openTime +
+                ", closeTime=" + closeTime +
+                '}';
+    }
 }

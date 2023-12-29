@@ -70,4 +70,16 @@ public class Accounts {
     public void setClient(Clients client) {
         this.client = client;
     }
+
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", balance=" + balance +
+                ", currency='" + currency + '\'' +
+                ", client=" + client +
+                '}';
+    }
 }

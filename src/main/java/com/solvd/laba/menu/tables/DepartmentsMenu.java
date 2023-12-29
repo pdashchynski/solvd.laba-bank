@@ -1,9 +1,12 @@
 package com.solvd.laba.menu.tables;
 
+import com.solvd.laba.database.model.Clients;
+import com.solvd.laba.database.model.Departments;
 import com.solvd.laba.services.DepartmentsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Time;
 import java.util.Scanner;
 
 public class DepartmentsMenu {
@@ -26,22 +29,22 @@ public class DepartmentsMenu {
 
             switch (input) {
                 case 1:
-                    ds.get();
+                    print();
                     break;
                 case 2:
-                    ds.getAll();
+                    printAll();
                     break;
                 case 3:
-                    ds.save();
+                    save();
                     break;
                 case 4:
-                    ds.insert();
+                    insert();
                     break;
                 case 5:
-                    ds.update();
+                    update();
                     break;
                 case 6:
-                    ds.delete();
+                    delete();
                     break;
                 case 0:
                     isExit = true;
@@ -52,5 +55,45 @@ public class DepartmentsMenu {
                     break;
             }
         }
+    }
+
+    private void print() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info(ds.get(id).toString());
+    }
+
+    private void printAll() {
+        LOGGER.info(ds.getAll().toString());
+    }
+
+    private Departments create() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info("Enter Address ID");
+        int addressId = sc.nextInt();
+        LOGGER.info("Enter Open Time (HH:MI:SS)");
+        Time openTime = Time.valueOf(sc.nextLine());
+        LOGGER.info("Enter Close Time (HH:MI:SS)");
+        Time closeTime = Time.valueOf(sc.nextLine());
+        return ds.create(id, addressId, openTime, closeTime);
+    }
+
+    private void save() {
+        ds.save(create());
+    }
+
+    private void insert() {
+        ds.insert(create());
+    }
+
+    private void update() {
+        ds.update(create());
+    }
+
+    private void delete() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        ds.delete(id);
     }
 }

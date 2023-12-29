@@ -1,9 +1,12 @@
 package com.solvd.laba.menu.tables;
 
+import com.solvd.laba.database.model.Cards;
+import com.solvd.laba.database.model.Clients;
 import com.solvd.laba.services.ClientsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 public class ClientsMenu {
@@ -26,22 +29,22 @@ public class ClientsMenu {
 
             switch (input) {
                 case 1:
-                    cs.get();
+                    print();
                     break;
                 case 2:
-                    cs.getAll();
+                    printAll();
                     break;
                 case 3:
-                    cs.save();
+                    save();
                     break;
                 case 4:
-                    cs.insert();
+                    insert();
                     break;
                 case 5:
-                    cs.update();
+                    update();
                     break;
                 case 6:
-                    cs.delete();
+                    delete();
                     break;
                 case 0:
                     isExit = true;
@@ -52,5 +55,43 @@ public class ClientsMenu {
                     break;
             }
         }
+    }
+
+    private void print() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info(cs.get(id).toString());
+    }
+
+    private void printAll() {
+        LOGGER.info(cs.getAll().toString());
+    }
+
+    private Clients create() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info("Enter Person ID");
+        int personId = sc.nextInt();
+        LOGGER.info("Enter Status");
+        String status = sc.nextLine();
+        return cs.create(id, personId, status);
+    }
+
+    private void save() {
+        cs.save(create());
+    }
+
+    private void insert() {
+        cs.insert(create());
+    }
+
+    private void update() {
+        cs.update(create());
+    }
+
+    private void delete() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        cs.delete(id);
     }
 }

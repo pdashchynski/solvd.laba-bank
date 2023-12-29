@@ -1,9 +1,12 @@
 package com.solvd.laba.menu.tables;
 
+import com.solvd.laba.database.model.Passports;
+import com.solvd.laba.database.model.Persons;
 import com.solvd.laba.services.PersonsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 public class PersonsMenu {
@@ -26,22 +29,22 @@ public class PersonsMenu {
 
             switch (input) {
                 case 1:
-                    ps.get();
+                    print();
                     break;
                 case 2:
-                    ps.getAll();
+                    printAll();
                     break;
                 case 3:
-                    ps.save();
+                    save();
                     break;
                 case 4:
-                    ps.insert();
+                    insert();
                     break;
                 case 5:
-                    ps.update();
+                    update();
                     break;
                 case 6:
-                    ps.delete();
+                    delete();
                     break;
                 case 0:
                     isExit = true;
@@ -52,5 +55,54 @@ public class PersonsMenu {
                     break;
             }
         }
+    }
+
+    private void print() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info(ps.get(id).toString());
+    }
+
+    private void printAll() {
+        LOGGER.info(ps.getAll().toString());
+    }
+
+    private Persons create() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        LOGGER.info("Enter First Name");
+        String firstName = sc.nextLine();
+        LOGGER.info("Enter Middle Name");
+        String middleName = sc.nextLine();
+        LOGGER.info("Enter Last Name");
+        String lastName = sc.nextLine();
+        LOGGER.info("Enter Age");
+        short age = sc.nextShort();
+        LOGGER.info("Enter From Date (YYYY-MM-DD)");
+        Date dateOfBirth = Date.valueOf(sc.nextLine());
+        LOGGER.info("Enter Gender");
+        String gender = sc.nextLine();
+        LOGGER.info("Enter Address ID");
+        int addressId = sc.nextInt();
+        return ps.create(id, firstName, middleName, lastName, age,
+                        dateOfBirth, gender, addressId);
+    }
+
+    private void save() {
+        ps.save(create());
+    }
+
+    private void insert() {
+        ps.insert(create());
+    }
+
+    private void update() {
+        ps.update(create());
+    }
+
+    private void delete() {
+        LOGGER.info("Enter ID");
+        int id = sc.nextInt();
+        ps.delete(id);
     }
 }

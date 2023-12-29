@@ -42,10 +42,13 @@ public class UserMenu {
                     withdrawMoney();
                     break;
                 case 3:
+                    topUpBalance();
                     break;
                 case 4:
+                    getCredit();
                     break;
                 case 5:
+                    payCredit();
                     break;
                 case 0:
                     isExit = true;
