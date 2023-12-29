@@ -1,6 +1,6 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Transactions {
 
@@ -8,21 +8,21 @@ public class Transactions {
     private String type;
     private int amount;
     private String currency;
-    private LocalDateTime date_time;
-    private int staff_idstaff;
-    private int services_idservices;
+    private Timestamp dateTime;
+    private Staff staff;
+    private Services service;
 
     public Transactions () {}
 
     public Transactions (int id, String type, int amount, String currency,
-                         LocalDateTime date_time, int staff_idstaff, int services_idservices) {
+                         Timestamp dateTime, Staff staff, Services service) {
         this.id = id;
         this.type = type;
         this.amount = amount;
         this.currency = currency;
-        this.date_time = date_time;
-        this.staff_idstaff = staff_idstaff;
-        this.services_idservices = services_idservices;
+        this.dateTime = dateTime;
+        this.staff = staff;
+        this.service = service;
     }
 
     public int getId() {
@@ -57,27 +57,40 @@ public class Transactions {
         this.currency = currency;
     }
 
-    public LocalDateTime getDate_time() {
-        return date_time;
+    public Timestamp getDateTime() {
+        return dateTime;
     }
 
-    public void setDate_time(LocalDateTime date_time) {
-        this.date_time = date_time;
+    public void setDateTime(Timestamp dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public int getStaff_idstaff() {
-        return staff_idstaff;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setStaff_idstaff(int staff_idstaff) {
-        this.staff_idstaff = staff_idstaff;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
-    public int getServices_idservices() {
-        return services_idservices;
+    public Services getService() {
+        return service;
     }
 
-    public void setServices_idservices(int services_idservices) {
-        this.services_idservices = services_idservices;
+    public void setService(Services service) {
+        this.service = service;
+    }
+
+    @Override
+    public String toString() {
+        return "Transactions{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", amount=" + amount +
+                ", currency='" + currency + '\'' +
+                ", dateTime=" + dateTime +
+                ", staff=" + staff +
+                ", service=" + service +
+                '}';
     }
 }

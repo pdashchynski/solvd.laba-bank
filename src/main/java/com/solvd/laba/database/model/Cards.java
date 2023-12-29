@@ -1,23 +1,23 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Cards {
 
     private int id;
-    private LocalDate from_date;
-    private LocalDate to_date;
+    private Date fromDate;
+    private Date toDate;
     private String type;
-    private int accounts_idaccounts;
+    private Accounts account;
 
     public Cards () {}
 
-    public Cards (int id, LocalDate from_date, LocalDate to_date, String type, int accounts_idaccounts) {
+    public Cards (int id, Date fromDate, Date toDate, String type, Accounts account) {
         this.id = id;
-        this.from_date = from_date;
-        this.to_date = to_date;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.type = type;
-        this.accounts_idaccounts = accounts_idaccounts;
+        this.account = account;
     }
 
     public int getId() {
@@ -28,20 +28,20 @@ public class Cards {
         this.id = id;
     }
 
-    public LocalDate getFrom_date() {
-        return from_date;
+    public Date getFromDate() {
+        return fromDate;
     }
 
-    public void setFrom_date(LocalDate from_date) {
-        this.from_date = from_date;
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public LocalDate getTo_date() {
-        return to_date;
+    public Date getToDate() {
+        return toDate;
     }
 
-    public void setTo_date(LocalDate to_date) {
-        this.to_date = to_date;
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 
     public String getType() {
@@ -52,11 +52,22 @@ public class Cards {
         this.type = type;
     }
 
-    public int getAccounts_idaccounts() {
-        return accounts_idaccounts;
+    public Accounts getAccount() {
+        return account;
     }
 
-    public void setAccounts_idaccounts(int accounts_idaccounts) {
-        this.accounts_idaccounts = accounts_idaccounts;
+    public void setAccount(Accounts account) {
+        this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return "Cards{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", type='" + type + '\'' +
+                ", account=" + account +
+                '}';
     }
 }

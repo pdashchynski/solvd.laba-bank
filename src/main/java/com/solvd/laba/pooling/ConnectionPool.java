@@ -35,7 +35,7 @@ public final class ConnectionPool {
         String username = PROPERTIES.getProperty("username");
         String password = PROPERTIES.getProperty("password");
 
-        for (int i = 0; i < POOL_SIZE; i++) {
+        for (int i = 0; i < poolSize; i++) {
             try {
                 CONNECTION_POOL.add(createConnection(url, username, password));
             } catch (SQLException e) {
@@ -62,7 +62,7 @@ public final class ConnectionPool {
         return CONNECTION_POOL.poll();
     }
 
-    public static void releaseConnection(Connection connection) throws InterruptedException {
+    public static void releaseConnection(Connection connection) {
         CONNECTION_POOL.offer(connection);
     }
 
