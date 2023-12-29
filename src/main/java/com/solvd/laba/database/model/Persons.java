@@ -11,14 +11,12 @@ public class Persons {
     private short age;
     private Date dateOfBirth;
     private String gender;
-    private int addressesId;
-    private int passportsId;
+    private Addresses address;
 
     public Persons () {}
 
     public Persons (int id, String firstName, String middleName, String lastName, short age,
-                    Date dateOfBirth, String gender, int addressesId,
-                    int passportsId) {
+                    Date dateOfBirth, String gender, Addresses address) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -26,8 +24,7 @@ public class Persons {
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.addressesId = addressesId;
-        this.passportsId = passportsId;
+        this.address = address;
     }
 
     public int getId() {
@@ -86,20 +83,12 @@ public class Persons {
         this.gender = gender;
     }
 
-    public int getAddressesId() {
-        return addressesId;
+    public Addresses getAddress() {
+        return address;
     }
 
-    public void setAddressesId(int addressesId) {
-        this.addressesId = addressesId;
-    }
-
-    public int getPassportsId() {
-        return passportsId;
-    }
-
-    public void setPassportsId(int passportsId) {
-        this.passportsId = passportsId;
+    public void setAddress(Addresses address) {
+        this.address = address;
     }
 
     @Override
@@ -112,8 +101,7 @@ public class Persons {
                 ", age=" + age +
                 ", date_of_birth=" + dateOfBirth +
                 ", gender='" + gender + '\'' +
-                ", addressesId=" + addressesId +
-                ", passportsId=" + passportsId +
+                ", addressesId=" + address +
                 '}';
     }
 }

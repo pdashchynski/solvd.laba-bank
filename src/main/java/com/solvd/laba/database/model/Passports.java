@@ -7,13 +7,15 @@ public class Passports {
     private int id;
     private Date fromDate;
     private Date toDate;
+    private Persons person;
 
     public Passports () {}
 
-    public Passports (int id, Date fromDate, Date toDate) {
+    public Passports (int id, Date fromDate, Date toDate, Persons person) {
         this.id = id;
         this.fromDate = fromDate;
         this.toDate = toDate;
+        this.person = person;
     }
 
     public int getId() {
@@ -38,5 +40,13 @@ public class Passports {
 
     public void setToDate(Date toDate) {
         this.toDate = toDate;
+    }
+
+    public Persons getPerson() {
+        return person;
+    }
+
+    public void setPerson(Persons person) {
+        this.person = person;
     }
 }

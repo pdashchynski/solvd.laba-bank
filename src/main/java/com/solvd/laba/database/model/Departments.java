@@ -5,15 +5,15 @@ import java.sql.Time;
 public class Departments {
 
     private int id;
-    private int addressesId;
+    private Addresses address;
     private Time openTime;
     private Time closeTime;
 
     public Departments () {}
 
-    public Departments(int id, int addressesId, Time openTime, Time closeTime) {
+    public Departments(int id, Addresses address, Time openTime, Time closeTime) {
         this.id = id;
-        this.addressesId = addressesId;
+        this.address = address;
         this.openTime = openTime;
         this.closeTime = closeTime;
     }
@@ -26,12 +26,12 @@ public class Departments {
         this.id = id;
     }
 
-    public int getAddressesId() {
-        return addressesId;
+    public Addresses getAddress() {
+        return address;
     }
 
-    public void setAddressesId(int addressesId) {
-        this.addressesId = addressesId;
+    public void setAddress(Addresses address) {
+        this.address = address;
     }
 
     public Time getOpenTime() {

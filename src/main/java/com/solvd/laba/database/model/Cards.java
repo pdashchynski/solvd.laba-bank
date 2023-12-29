@@ -8,16 +8,16 @@ public class Cards {
     private Date fromDate;
     private Date toDate;
     private String type;
-    private int accountsId;
+    private Accounts account;
 
     public Cards () {}
 
-    public Cards (int id, Date fromDate, Date toDate, String type, int accountsId) {
+    public Cards (int id, Date fromDate, Date toDate, String type, Accounts account) {
         this.id = id;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.type = type;
-        this.accountsId = accountsId;
+        this.account = account;
     }
 
     public int getId() {
@@ -52,11 +52,11 @@ public class Cards {
         this.type = type;
     }
 
-    public int getAccountsId() {
-        return accountsId;
+    public Accounts getAccount() {
+        return account;
     }
 
-    public void setAccountsId(int accountsId) {
-        this.accountsId = accountsId;
+    public void setAccount(Accounts account) {
+        this.account = account;
     }
 }

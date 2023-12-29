@@ -9,18 +9,18 @@ public class Accounts {
     private Date toDate;
     private int balance;
     private String currency;
-    private int clientsId;
+    private Clients client;
 
     public Accounts () {}
 
-    public Accounts (int id, Date fromDate, Date toDate,
-                     int balance, String currency, int clientsId) {
+    public Accounts (int id, Date fromDate, Date toDate, int balance,
+                     String currency, Clients client) {
         this.id = id;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.balance = balance;
         this.currency = currency;
-        this.clientsId = clientsId;
+        this.client = client;
     }
 
     public int getId() {
@@ -63,11 +63,11 @@ public class Accounts {
         this.currency = currency;
     }
 
-    public int getClientsId() {
-        return clientsId;
+    public Clients getClient() {
+        return client;
     }
 
-    public void setClientsId(int clientsId) {
-        this.clientsId = clientsId;
+    public void setClient(Clients client) {
+        this.client = client;
     }
 }

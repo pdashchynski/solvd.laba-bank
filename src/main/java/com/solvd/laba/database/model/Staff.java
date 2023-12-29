@@ -5,22 +5,22 @@ import java.sql.Date;
 public class Staff {
 
     private int id;
-    private int personsId;
     private Date dateHired;
     private String position;
     private int salary;
-    private int departmentsId;
+    private Persons person;
+    private Departments department;
 
     public Staff () {}
 
-    public Staff (int id, int personsId, Date dateHired,
-                  String position, int salary, int departmentsId) {
+    public Staff (int id, Date dateHired,
+                  String position, int salary, Persons person, Departments department) {
         this.id = id;
-        this.personsId = personsId;
         this.dateHired = dateHired;
         this.position = position;
         this.salary = salary;
-        this.departmentsId = departmentsId;
+        this.person = person;
+        this.department = department;
     }
 
     public int getId() {
@@ -29,14 +29,6 @@ public class Staff {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPersonsId() {
-        return personsId;
-    }
-
-    public void setPersonsId(int personsId) {
-        this.personsId = personsId;
     }
 
     public Date getDateHired() {
@@ -63,11 +55,19 @@ public class Staff {
         this.salary = salary;
     }
 
-    public int getDepartmentsId() {
-        return departmentsId;
+    public Persons getPerson() {
+        return person;
     }
 
-    public void setDepartmentsId(int departmentsId) {
-        this.departmentsId = departmentsId;
+    public void setPerson(Persons person) {
+        this.person = person;
+    }
+
+    public Departments getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Departments department) {
+        this.department = department;
     }
 }

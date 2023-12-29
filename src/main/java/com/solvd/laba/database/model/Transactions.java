@@ -1,7 +1,6 @@
 package com.solvd.laba.database.model;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class Transactions {
 
@@ -10,20 +9,20 @@ public class Transactions {
     private int amount;
     private String currency;
     private Timestamp dateTime;
-    private int staffId;
-    private int servicesId;
+    private Staff staff;
+    private Services service;
 
     public Transactions () {}
 
     public Transactions (int id, String type, int amount, String currency,
-                         Timestamp dateTime, int staffId, int servicesId) {
+                         Timestamp dateTime, Staff staff, Services service) {
         this.id = id;
         this.type = type;
         this.amount = amount;
         this.currency = currency;
         this.dateTime = dateTime;
-        this.staffId = staffId;
-        this.servicesId = servicesId;
+        this.staff = staff;
+        this.service = service;
     }
 
     public int getId() {
@@ -66,19 +65,19 @@ public class Transactions {
         this.dateTime = dateTime;
     }
 
-    public int getStaffId() {
-        return staffId;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setStaffId(int staffId) {
-        this.staffId = staffId;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
-    public int getServicesId() {
-        return servicesId;
+    public Services getService() {
+        return service;
     }
 
-    public void setServicesId(int servicesId) {
-        this.servicesId = servicesId;
+    public void setService(Services service) {
+        this.service = service;
     }
 }

@@ -1,10 +1,8 @@
-package com.solvd.laba.database.dao;
+package com.solvd.laba.services;
 
-import java.sql.SQLException;
 import java.util.List;
 
-public interface GenericCRUD<T> {
-
+public interface GenericCRUDService<T> {
     T get(int id);
 
     List<T> getAll();
