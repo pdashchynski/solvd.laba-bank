@@ -1,0 +1,9 @@
+{
+  "id": 5,
+  "from_date": "2019-06-20",
+  "to_date": "2025-06-20",
+  "type": "Platinum",
+  "accounts_id": "4",
+  "accounts_clients_id": "4",
+  "accounts_clients_persons_id": "7"
+}

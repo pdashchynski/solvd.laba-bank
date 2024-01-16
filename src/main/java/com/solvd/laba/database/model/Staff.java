@@ -1,26 +1,26 @@
 package com.solvd.laba.database.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Staff {
 
     private int id;
-    private int persons_idpersons;
-    private LocalDate date_hired;
+    private Date dateHired;
     private String position;
     private int salary;
-    private int departments_iddepartments;
+    private Persons person;
+    private Departments department;
 
     public Staff () {}
 
-    public Staff (int id, int persons_idpersons, LocalDate date_hired,
-                  String position, int salary, int departments_iddepartments) {
+    public Staff (int id, Date dateHired,
+                  String position, int salary, Persons person, Departments department) {
         this.id = id;
-        this.persons_idpersons = persons_idpersons;
-        this.date_hired = date_hired;
+        this.dateHired = dateHired;
         this.position = position;
         this.salary = salary;
-        this.departments_iddepartments = departments_iddepartments;
+        this.person = person;
+        this.department = department;
     }
 
     public int getId() {
@@ -31,20 +31,12 @@ public class Staff {
         this.id = id;
     }
 
-    public int getPersons_idpersons() {
-        return persons_idpersons;
+    public Date getDateHired() {
+        return dateHired;
     }
 
-    public void setPersons_idpersons(int persons_idpersons) {
-        this.persons_idpersons = persons_idpersons;
-    }
-
-    public LocalDate getDate_hired() {
-        return date_hired;
-    }
-
-    public void setDate_hired(LocalDate date_hired) {
-        this.date_hired = date_hired;
+    public void setDateHired(Date dateHired) {
+        this.dateHired = dateHired;
     }
 
     public String getPosition() {
@@ -63,11 +55,31 @@ public class Staff {
         this.salary = salary;
     }
 
-    public int getDepartments_iddepartments() {
-        return departments_iddepartments;
+    public Persons getPerson() {
+        return person;
     }
 
-    public void setDepartments_iddepartments(int departments_iddepartments) {
-        this.departments_iddepartments = departments_iddepartments;
+    public void setPerson(Persons person) {
+        this.person = person;
+    }
+
+    public Departments getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Departments department) {
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "id=" + id +
+                ", dateHired=" + dateHired +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", person=" + person +
+                ", department=" + department +
+                '}';
     }
 }

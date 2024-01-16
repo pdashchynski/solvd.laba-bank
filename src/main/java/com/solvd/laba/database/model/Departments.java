@@ -1,17 +1,21 @@
 package com.solvd.laba.database.model;
 
+import java.sql.Time;
+
 public class Departments {
 
     private int id;
-    private int addresses_idaddresses;
-    private String schedule;
+    private Addresses address;
+    private Time openTime;
+    private Time closeTime;
 
     public Departments () {}
 
-    public Departments (int id, int addresses_idaddresses, String schedule) {
+    public Departments(int id, Addresses address, Time openTime, Time closeTime) {
         this.id = id;
-        this.addresses_idaddresses = addresses_idaddresses;
-        this.schedule = schedule;
+        this.address = address;
+        this.openTime = openTime;
+        this.closeTime = closeTime;
     }
 
     public int getId() {
@@ -22,19 +26,37 @@ public class Departments {
         this.id = id;
     }
 
-    public int getAddresses_idaddresses() {
-        return addresses_idaddresses;
+    public Addresses getAddress() {
+        return address;
     }
 
-    public void setAddresses_idaddresses(int addresses_idaddresses) {
-        this.addresses_idaddresses = addresses_idaddresses;
+    public void setAddress(Addresses address) {
+        this.address = address;
     }
 
-    public String getSchedule() {
-        return schedule;
+    public Time getOpenTime() {
+        return openTime;
     }
 
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
+    public void setOpenTime(Time openTime) {
+        this.openTime = openTime;
+    }
+
+    public Time getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(Time closeTime) {
+        this.closeTime = closeTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Departments{" +
+                "id=" + id +
+                ", address=" + address +
+                ", openTime=" + openTime +
+                ", closeTime=" + closeTime +
+                '}';
     }
 }

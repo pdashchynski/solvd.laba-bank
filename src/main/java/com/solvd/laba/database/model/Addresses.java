@@ -5,15 +5,15 @@ public class Addresses {
     private int id;
     private String country;
     private String city;
-    private String postal_code;
+    private String postalCode;
 
     public Addresses () {}
 
-    public Addresses (int id, String country, String city, String postal_code) {
+    public Addresses (int id, String country, String city, String postalCode) {
         this.id = id;
         this.country = country;
         this.city = city;
-        this.postal_code = postal_code;
+        this.postalCode = postalCode;
     }
 
     public int getId() {
@@ -40,11 +40,21 @@ public class Addresses {
         this.city = city;
     }
 
-    public String getPostal_code() {
-        return postal_code;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostal_code(String postal_code) {
-        this.postal_code = postal_code;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Addresses{" +
+                "id=" + id +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                '}';
     }
 }
