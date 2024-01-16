@@ -67,6 +67,43 @@ public class AccountsMenu {
     }
 
     private Accounts create() {
+        boolean isExit = false;
+        int input;
+        Accounts account = null;
+        while (!isExit) {
+            LOGGER.info("1 - Enter From Console");
+            LOGGER.info("2 - Parse XML(SAX)");
+            LOGGER.info("3 - Parse XML(JAXB)");
+            LOGGER.info("4 - Parse JSON");
+            LOGGER.info("0 - Quit");
+            input = sc.nextInt();
+
+            switch (input) {
+                case 1:
+                    account = createFromConsole();
+                    break;
+                case 2:
+                    sax();
+                    break;
+                case 3:
+                    jaxb();
+                    break;
+                case 4:
+                    json();
+                    break;
+                case 0:
+                    isExit = true;
+                    LOGGER.info("Back to Accounts Menu");
+                    break;
+                default:
+                    LOGGER.info("Incorrect Menu Input");
+                    break;
+            }
+        }
+        return account;
+    }
+
+    private Accounts createFromConsole() {
         LOGGER.info("Enter ID");
         int id = sc.nextInt();
         LOGGER.info("Enter From Date (YYYY-MM-DD)");
