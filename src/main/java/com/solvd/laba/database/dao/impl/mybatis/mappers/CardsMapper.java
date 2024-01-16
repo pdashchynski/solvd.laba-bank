@@ -7,13 +7,14 @@ import java.util.List;
 
 public interface CardsMapper {
 
-    @Select("SELECT * FROM cards WHERE id = #{}")
+    @Select("SELECT * FROM cards WHERE id = #{id}")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "fromDate", column = "from_date"),
             @Result(property = "toDate", column = "to_date"),
             @Result(property = "type", column = "type"),
-            @Result(property = "account", column = "accounts_id")
+            @Result(property = "account", column = "accounts_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.AccountsMapper.get"))
     })
     Cards get(int id);
 
@@ -23,14 +24,15 @@ public interface CardsMapper {
             @Result(property = "fromDate", column = "from_date"),
             @Result(property = "toDate", column = "to_date"),
             @Result(property = "type", column = "type"),
-            @Result(property = "accounts", column = "accounts_id")
+            @Result(property = "accounts", column = "accounts_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.AccountsMapper.get"))
     })
     List<Cards> getAll();
 
     @Insert("INSERT INTO cards (id, from_date, to_date, type, " +
             "accounts_id, accounts_clients_id, accounts_clients_persons_id) " +
             "VALUES (#{id}, #{fromDate}, #{toDate}, #{type}, " +
-            "#{account.id}, #{account.clients_id}, #{}) AS new" +
+            "#{account.id}, #{account.clients_id}, #{account.clients_persons_id}) AS new" +
             "ON DUPLICATE KEY " +
             "UPDATE cards SET from_date = new.from_date, to_date = new.to_date, " +
             "type = new.type, " +
@@ -42,7 +44,7 @@ public interface CardsMapper {
     @Insert("INSERT INTO cards (id, from_date, to_date, type, " +
             "accounts_id, accounts_clients_id, accounts_clients_persons_id) " +
             "VALUES (#{id}, #{fromDate}, #{toDate}, #{type}, " +
-            "#{account.id}, #{account.clients_id}, #{})")
+            "#{account.id}, #{account.clients_id}, #{account.clients_persons_id})")
     void insert(Cards card);
 
     @Update("UPDATE cards SET " +
@@ -51,8 +53,8 @@ public interface CardsMapper {
             "type = #{type}, " +
             "accounts_id = #{account.id}, " +
             "accounts_clients_id = #{account.clients_id}, " +
-            "accounts_clients_persons_id = #{} " +
-            "WHERE id = #{}")
+            "accounts_clients_persons_id = #{account.clients_persons_id} " +
+            "WHERE id = #{id}")
     void update(Cards card);
 
     @Delete("DELETE FROM cards WHERE id = #{id}")

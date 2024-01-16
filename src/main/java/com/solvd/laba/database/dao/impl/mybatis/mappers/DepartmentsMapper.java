@@ -10,7 +10,8 @@ public interface DepartmentsMapper {
     @Select("SELECT * FROM departments WHERE id = #{}")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "address", column = "addresses_id"),
+            @Result(property = "address", column = "addresses_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.AddressesMapper.get")),
             @Result(property = "openTime", column = "open_time"),
             @Result(property = "closeTime", column = "close_time")
     })
@@ -19,7 +20,8 @@ public interface DepartmentsMapper {
     @Select("SELECT * FROM departments")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "address", column = "addresses_id"),
+            @Result(property = "address", column = "addresses_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.AddressesMapper.get")),
             @Result(property = "openTime", column = "open_time"),
             @Result(property = "closeTime", column = "close_time")
     })

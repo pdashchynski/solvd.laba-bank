@@ -51,7 +51,7 @@ public interface AccountsMapper {
             "to_date = #{toDate}, " +
             "balance = #{balance}, " +
             "currency = #{currency}, " +
-            "clients_id = #{clients.id}, " +
+            "clients_id = #{client.id}, " +
             "clients_persons_id = #{client.persons_id} " +
             "WHERE id = #{id}")
     void update(Accounts account);

@@ -1,58 +1,58 @@
 package com.solvd.laba.database.dao.impl.mybatis.mappers;
 
-import com.solvd.laba.database.model.Accounts;
+import com.solvd.laba.database.model.Staff;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface StaffMapper {
 
-    @Select("SELECT * FROM accounts WHERE id = #{}")
+    @Select("SELECT * FROM staff WHERE id = #{id}")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "fromDate", column = "from_date"),
-            @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "dateHired", column = "date_hired"),
+            @Result(property = "position", column = "position"),
+            @Result(property = "salary", column = "salary"),
+            @Result(property = "person", column = "persons_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.PersonsMapper.get")),
+            @Result(property = "department", column = "departments_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.DepartmentsMapper.get"))
     })
-    Accounts get(int id);
+    Staff get(int id);
 
-    @Select("SELECT * FROM accounts")
+    @Select("SELECT * FROM staff")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "fromDate", column = "from_date"),
-            @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "dateHired", column = "date_hired"),
+            @Result(property = "position", column = "position"),
+            @Result(property = "salary", column = "salary"),
+            @Result(property = "person", column = "persons_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.PersonsMapper.get")),
+            @Result(property = "department", column = "departments_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.DepartmentsMapper.get"))
     })
-    List<Accounts> getAll();
+    List<Staff> getAll();
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{}) AS new" +
+    @Insert("INSERT INTO staff (id, date_hired, position, salary, persons_id, departments_id) " +
+            "VALUES (#{id}, #{dateHired}, #{position}, #{salary}, #{person.id}, #{department.id}) AS new" +
             "ON DUPLICATE KEY " +
-            "UPDATE accounts SET from_date = new.from_date, to_date = new.to_date, " +
-            "balance = new.balance, currency = new.currency, " +
-            "clients_id = new.clients_id, clients_persons_id = new.clients_persons_id")
-    void save(Accounts account);
+            "UPDATE staff SET date_hired = new.date_hired, position = new.position " +
+            "salary = new.salary, persons_id = new.persons_id, departments_id = new.departments_id")
+    void save(Staff staff);
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{})")
-    void insert(Accounts account);
+    @Insert("INSERT INTO staff (id, date_hired, position, salary, persons_id, departments_id) " +
+            "VALUES (#{id}, #{dateHired}, #{position}, #{salary}, #{person.id}, #{department.id})")
+    void insert(Staff staff);
 
-    @Update("UPDATE accounts SET " +
-            "from_date = #{}, " +
-            "to_date = #{}, " +
-            "balance = #{}, " +
-            "currency = #{}, " +
-            "clients_id = #{}, " +
-            "clients_persons_id = #{} " +
-            "WHERE id = #{}")
-    void update(Accounts account);
+    @Update("UPDATE staff SET " +
+            "date_hired = #{dateHired}, " +
+            "position = #{position}, " +
+            "salary = #{salary}, " +
+            "persons_id = #{person.id}, " +
+            "departments_id = #{department.id}, " +
+            "WHERE id = #{id}")
+    void update(Staff staff);
 
-    @Delete("DELETE FROM accounts WHERE id = #{}")
+    @Delete("DELETE FROM staff WHERE id = #{id}")
     void delete(int id);
 }

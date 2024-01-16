@@ -1,58 +1,50 @@
 package com.solvd.laba.database.dao.impl.mybatis.mappers;
 
-import com.solvd.laba.database.model.Accounts;
+import com.solvd.laba.database.model.Passports;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface PassportsMapper {
 
-    @Select("SELECT * FROM accounts WHERE id = #{}")
+    @Select("SELECT * FROM passports WHERE id = #{}")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "fromDate", column = "from_date"),
             @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "person", column = "persons_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.PersonsMapper.get"))
     })
-    Accounts get(int id);
+    Passports get(int id);
 
-    @Select("SELECT * FROM accounts")
+    @Select("SELECT * FROM passports")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "fromDate", column = "from_date"),
             @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "person", column = "persons_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.PersonsMapper.get"))
     })
-    List<Accounts> getAll();
+    List<Passports> getAll();
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{}) AS new" +
+    @Insert("INSERT INTO passports (id, from_date, to_date, persons_id) " +
+            "VALUES (#{id}, #{fromDate}, #{toDate}, #{person.id}) AS new" +
             "ON DUPLICATE KEY " +
-            "UPDATE accounts SET from_date = new.from_date, to_date = new.to_date, " +
-            "balance = new.balance, currency = new.currency, " +
-            "clients_id = new.clients_id, clients_persons_id = new.clients_persons_id")
-    void save(Accounts account);
+            "UPDATE passports SET from_date = new.from_date, " +
+            "to_date = new.to_date, persons_id = new.persons_id")
+    void save(Passports passport);
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{})")
-    void insert(Accounts account);
+    @Insert("INSERT INTO passports (id, from_date, to_date, persons_id) " +
+            "VALUES (#{id}, #{fromDate}, #{toDate}, #{person.id})")
+    void insert(Passports passport);
 
-    @Update("UPDATE accounts SET " +
-            "from_date = #{}, " +
-            "to_date = #{}, " +
-            "balance = #{}, " +
-            "currency = #{}, " +
-            "clients_id = #{}, " +
-            "clients_persons_id = #{} " +
-            "WHERE id = #{}")
-    void update(Accounts account);
+    @Update("UPDATE passports SET " +
+            "from_date = #{fromDate}, " +
+            "to_date = #{toDate}, " +
+            "persons_id = #{person.id}, " +
+            "WHERE id = #{id}")
+    void update(Passports passport);
 
-    @Delete("DELETE FROM accounts WHERE id = #{}")
+    @Delete("DELETE FROM passports WHERE id = #{id}")
     void delete(int id);
 }

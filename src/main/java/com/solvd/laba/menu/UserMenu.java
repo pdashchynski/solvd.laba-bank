@@ -35,7 +35,7 @@ public class UserMenu {
             input = sc.nextInt();
 
             switch (input) {
-                case 1:
+      /*          case 1:
                     showCurrentBalance();
                     break;
                 case 2:
@@ -49,7 +49,7 @@ public class UserMenu {
                     break;
                 case 5:
                     payCredit();
-                    break;
+                    break;*/
                 case 0:
                     isExit = true;
                     LOGGER.info("Exiting to Main Menu");

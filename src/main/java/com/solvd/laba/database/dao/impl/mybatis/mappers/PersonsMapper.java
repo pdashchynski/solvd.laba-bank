@@ -1,58 +1,63 @@
 package com.solvd.laba.database.dao.impl.mybatis.mappers;
 
-import com.solvd.laba.database.model.Accounts;
+import com.solvd.laba.database.model.Persons;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface PersonsMapper {
 
-    @Select("SELECT * FROM accounts WHERE id = #{}")
+    @Select("SELECT * FROM persons WHERE id = #{id}")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "fromDate", column = "from_date"),
-            @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "firstName", column = "first_name"),
+            @Result(property = "middleName", column = "middle_name"),
+            @Result(property = "lastName", column = "last_name"),
+            @Result(property = "age", column = "age"),
+            @Result(property = "dateOfBirth", column = "date_of_birth"),
+            @Result(property = "gender", column = "gender"),
+            @Result(property = "address", column = "addresses_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.AddressesMapper.get"))
     })
-    Accounts get(int id);
+    Persons get(int id);
 
-    @Select("SELECT * FROM accounts")
+    @Select("SELECT * FROM persons")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "fromDate", column = "from_date"),
-            @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "firstName", column = "first_name"),
+            @Result(property = "middleName", column = "middle_name"),
+            @Result(property = "lastName", column = "last_name"),
+            @Result(property = "age", column = "age"),
+            @Result(property = "dateOfBirth", column = "date_of_birth"),
+            @Result(property = "gender", column = "gender"),
+            @Result(property = "address", column = "addresses_id",
+                    one = @One(select = "com.solvd.laba.database.dao.impl.mybatis.mappers.AddressesMapper.get"))
     })
-    List<Accounts> getAll();
+    List<Persons> getAll();
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{}) AS new" +
+    @Insert("INSERT INTO persons (id, first_name, middle_name, last_name, age, date_of_birth, gender, addresses_id) " +
+            "VALUES (#{id}, #{firstName}, #{middleName}, #{lastName}, #{age}, #{dateOfBirth}, #{gender}, #{address.id}) AS new" +
             "ON DUPLICATE KEY " +
-            "UPDATE accounts SET from_date = new.from_date, to_date = new.to_date, " +
-            "balance = new.balance, currency = new.currency, " +
-            "clients_id = new.clients_id, clients_persons_id = new.clients_persons_id")
-    void save(Accounts account);
+            "UPDATE persons SET first_name = new.first_name, " +
+            "middle_name = new.middle_name, last_name = new.last_name, age = new.age, " +
+            "date_of_birth = new.date_of_birth, gender = new.gender, addresses_id = new.addresses_id")
+    void save(Persons person);
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{})")
-    void insert(Accounts account);
+    @Insert("INSERT INTO persons (id, first_name, middle_name, last_name, age, date_of_birth, gender, addresses_id) " +
+            "VALUES (#{id}, #{firstName}, #{middleName}, #{lastName}, #{age}, #{dateOfBirth}, #{gender}, #{address.id})")
+    void insert(Persons person);
 
-    @Update("UPDATE accounts SET " +
-            "from_date = #{}, " +
-            "to_date = #{}, " +
-            "balance = #{}, " +
-            "currency = #{}, " +
-            "clients_id = #{}, " +
-            "clients_persons_id = #{} " +
-            "WHERE id = #{}")
-    void update(Accounts account);
+    @Update("UPDATE persons SET " +
+            "first_name = #{firstName}, " +
+            "middle_name = #{middleName}, " +
+            "last_name = #{lastName}, " +
+            "age = #{age}, " +
+            "date_of_birth = #{dateOfBirth}, " +
+            "gender = #{gender} " +
+            "addresses_id = #{address.id} " +
+            "WHERE id = #{id}")
+    void update(Persons person);
 
-    @Delete("DELETE FROM accounts WHERE id = #{}")
+    @Delete("DELETE FROM persons WHERE id = #{id}")
     void delete(int id);
 }

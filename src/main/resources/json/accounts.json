@@ -1,0 +1,9 @@
+{
+  "id": 4,
+  "from_date": "2019-06-19",
+  "to_date": "2029-06-19",
+  "balance": "500000",
+  "currency": "EUR",
+  "clients_id": "4",
+  "clients_persons_id": "7"
+}

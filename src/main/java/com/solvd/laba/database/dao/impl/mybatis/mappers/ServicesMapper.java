@@ -1,58 +1,44 @@
 package com.solvd.laba.database.dao.impl.mybatis.mappers;
 
-import com.solvd.laba.database.model.Accounts;
+import com.solvd.laba.database.model.Services;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface ServicesMapper {
 
-    @Select("SELECT * FROM accounts WHERE id = #{}")
+    @Select("SELECT * FROM services WHERE id = #{}")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "fromDate", column = "from_date"),
-            @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "name", column = "name"),
+            @Result(property = "price", column = "price")
     })
-    Accounts get(int id);
+    Services get(int id);
 
-    @Select("SELECT * FROM accounts")
+    @Select("SELECT * FROM services")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "fromDate", column = "from_date"),
-            @Result(property = "toDate", column = "to_date"),
-            @Result(property = "balance", column = "balance"),
-            @Result(property = "currency", column = "currency"),
-            @Result(property = "client", column = "clients_id")
+            @Result(property = "name", column = "name"),
+            @Result(property = "price", column = "price")
     })
-    List<Accounts> getAll();
+    List<Services> getAll();
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{}) AS new" +
+    @Insert("INSERT INTO services (id, name, price) " +
+            "VALUES (#{id}, #{name}, #{price}) AS new" +
             "ON DUPLICATE KEY " +
-            "UPDATE accounts SET from_date = new.from_date, to_date = new.to_date, " +
-            "balance = new.balance, currency = new.currency, " +
-            "clients_id = new.clients_id, clients_persons_id = new.clients_persons_id")
-    void save(Accounts account);
+            "UPDATE services SET name = new.name, price = new.price")
+    void save(Services service);
 
-    @Insert("INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
-            "clients_id, clients_persons_id) " +
-            "VALUES (#{}, #{}, #{}, #{}, #{}, #{}, #{})")
-    void insert(Accounts account);
+    @Insert("INSERT INTO services (id, name, price) " +
+            "VALUES (#{id}, #{name}, #{price}")
+    void insert(Services service);
 
-    @Update("UPDATE accounts SET " +
-            "from_date = #{}, " +
-            "to_date = #{}, " +
-            "balance = #{}, " +
-            "currency = #{}, " +
-            "clients_id = #{}, " +
-            "clients_persons_id = #{} " +
-            "WHERE id = #{}")
-    void update(Accounts account);
+    @Update("UPDATE services SET " +
+            "name = #{name}, " +
+            "price = #{price}, " +
+            "WHERE id = #{id}")
+    void update(Services service);
 
-    @Delete("DELETE FROM accounts WHERE id = #{}")
+    @Delete("DELETE FROM services WHERE id = #{id}")
     void delete(int id);
 }

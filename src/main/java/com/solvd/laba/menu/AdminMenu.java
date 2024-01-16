@@ -40,7 +40,6 @@ public class AdminMenu {
 
     public void display() {
         loginMenu();
-        loggedInMenu();
     }
 
     private void loginMenu() {
@@ -70,14 +69,18 @@ public class AdminMenu {
     private void login() {
         String username = PROPERTIES.getProperty("username");
         String password = PROPERTIES.getProperty("password");
+        boolean isExit = false;
 
-        LOGGER.info("Please Enter the Username");
-        String usernameInput = sc.nextLine();
-        if (usernameInput.equals(username)) {
-            LOGGER.info("Please Enter the Password");
-            String passwordInput = sc.nextLine();
-            if (passwordInput.equals(password)) {
-                loggedInMenu();
+        while (!isExit) {
+            LOGGER.info("Please Enter the Username");
+            String usernameInput = sc.nextLine();
+            if (usernameInput.equals(username)) {
+                LOGGER.info("Please Enter the Password");
+                String passwordInput = sc.nextLine();
+                if (passwordInput.equals(password)) {
+                    loggedInMenu();
+                    isExit = true;
+                }
             }
         }
     }
