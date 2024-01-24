@@ -112,7 +112,7 @@ public class PersonsMenu {
                     break;
                 case 0:
                     isExit = true;
-                    LOGGER.info("Back to Accounts Menu");
+                    LOGGER.info("Back to Persons Menu");
                     break;
                 default:
                     LOGGER.info("Incorrect Menu Input");

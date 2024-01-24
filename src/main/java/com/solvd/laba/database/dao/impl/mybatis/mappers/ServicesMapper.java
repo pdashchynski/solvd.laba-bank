@@ -24,9 +24,9 @@ public interface ServicesMapper {
     List<Services> getAll();
 
     @Insert("INSERT INTO services (id, name, price) " +
-            "VALUES (#{id}, #{name}, #{price}) AS new" +
+            "VALUES (#{id}, #{name}, #{price}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE services SET name = new.name, price = new.price")
+            "UPDATE name = new.name, price = new.price")
     void save(Services service);
 
     @Insert("INSERT INTO services (id, name, price) " +

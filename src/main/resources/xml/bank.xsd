@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:bindings version="2.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <jaxb:globalBindings>
+                    <jaxb:javaType name="java.sql.Date" xmlType="xs:date" parseMethod="src/main/java/com/solvd/laba/parsing/xml/jaxb/DateAdapter.java"/>
+                </jaxb:globalBindings>
+            </jaxb:bindings>
+        </xs:appinfo>
+    </xs:annotation>
+
     <xs:element name="bank">
         <xs:complexType>
             <xs:sequence>

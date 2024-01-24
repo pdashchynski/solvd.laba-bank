@@ -26,9 +26,9 @@ public interface AddressesMapper {
     List<Addresses> getAll();
 
     @Insert("INSERT INTO addresses (id, country, city, postal_code) " +
-            "VALUES (#{id}, #{country}, #{city}, #{postalCode}) AS new" +
+            "VALUES (#{id}, #{country}, #{city}, #{postalCode}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE addresses SET country = new.country, city = new.city, postal_code = new.postal_code")
+            "UPDATE country = new.country, city = new.city, postal_code = new.postal_code")
     void save(Addresses address);
 
     @Insert("INSERT INTO addresses (id, country, city, postal_code) " +

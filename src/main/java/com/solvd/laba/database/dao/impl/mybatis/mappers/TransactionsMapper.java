@@ -32,9 +32,9 @@ public interface TransactionsMapper {
     List<Transactions> getAll();
 
     @Insert("INSERT INTO transactions (id, type, amount, currency, date_time, staff_id, services_id) " +
-            "VALUES (#{id}, #{type}, #{amount}, #{currency}, #{dateTime}, #{staff.id}, #{service.id}) AS new" +
+            "VALUES (#{id}, #{type}, #{amount}, #{currency}, #{dateTime}, #{staff.id}, #{service.id}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE transactions SET from_date = new.from_date, to_date = new.to_date, " +
+            "UPDATE from_date = new.from_date, to_date = new.to_date, " +
             "balance = new.balance, currency = new.currency, " +
             "clients_id = new.clients_id, clients_persons_id = new.clients_persons_id")
     void save(Transactions transaction);

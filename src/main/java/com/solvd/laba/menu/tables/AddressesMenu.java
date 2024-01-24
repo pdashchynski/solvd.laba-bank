@@ -108,7 +108,7 @@ public class AddressesMenu {
                     break;
                 case 0:
                     isExit = true;
-                    LOGGER.info("Back to Accounts Menu");
+                    LOGGER.info("Back to Addresses Menu");
                     break;
                 default:
                     LOGGER.info("Incorrect Menu Input");

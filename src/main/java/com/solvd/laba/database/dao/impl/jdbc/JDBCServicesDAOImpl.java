@@ -77,7 +77,7 @@ public class JDBCServicesDAOImpl implements ServicesDAO {
             String sql = "INSERT INTO services (id, name, price) " +
                     "VALUES (?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE services SET name = new.name, price = new.price";
+                    "UPDATE name = new.name, price = new.price";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, service.getId());
             ps.setString(2, service.getName());

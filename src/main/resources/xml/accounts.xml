@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+    <account>
+        <id>4</id>
+        <fromDate>2016-06-16</fromDate>
+        <toDate>2026-06-16</toDate>
+        <balance>5000</balance>
+        <currency>USD</currency>
+        <clientId>3</clientId>
+    </account>
+
+    <account>
+        <id>5</id>
+        <fromDate>2018-08-18</fromDate>
+        <toDate>2028-08-18</toDate>
+        <balance>500</balance>
+        <currency>USD</currency>
+        <clientId>1</clientId>
+    </account>
+</accounts>

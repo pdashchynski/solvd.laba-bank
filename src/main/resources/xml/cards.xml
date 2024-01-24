@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cards>
+    <card>
+        <id>5</id>
+        <fromDate>2016-06-16</fromDate>
+        <toDate>2026-06-16</toDate>
+        <type>Credit</type>
+        <accountId>1</accountId>
+    </card>
+
+    <card>
+        <id>6</id>
+        <fromDate>2016-06-16</fromDate>
+        <toDate>2026-06-16</toDate>
+        <type>Debit</type>
+        <accountId>1</accountId>
+    </card>
+</cards>

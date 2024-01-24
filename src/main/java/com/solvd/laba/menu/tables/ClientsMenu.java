@@ -111,7 +111,7 @@ public class ClientsMenu {
                     break;
                 case 0:
                     isExit = true;
-                    LOGGER.info("Back to Accounts Menu");
+                    LOGGER.info("Back to Clients Menu");
                     break;
                 default:
                     LOGGER.info("Incorrect Menu Input");

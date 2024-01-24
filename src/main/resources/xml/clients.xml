@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+    <client>
+        <id>4</id>
+        <personsId>7</personsId>
+        <status>VIP</status>
+    </client>
+
+    <client>
+        <id>5</id>
+        <personsId>8</personsId>
+        <status>VIP</status>
+    </client>
+</clients>

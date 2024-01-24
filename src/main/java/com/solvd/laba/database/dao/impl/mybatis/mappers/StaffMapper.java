@@ -34,9 +34,9 @@ public interface StaffMapper {
     List<Staff> getAll();
 
     @Insert("INSERT INTO staff (id, date_hired, position, salary, persons_id, departments_id) " +
-            "VALUES (#{id}, #{dateHired}, #{position}, #{salary}, #{person.id}, #{department.id}) AS new" +
+            "VALUES (#{id}, #{dateHired}, #{position}, #{salary}, #{person.id}, #{department.id}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE staff SET date_hired = new.date_hired, position = new.position " +
+            "UPDATE date_hired = new.date_hired, position = new.position " +
             "salary = new.salary, persons_id = new.persons_id, departments_id = new.departments_id")
     void save(Staff staff);
 

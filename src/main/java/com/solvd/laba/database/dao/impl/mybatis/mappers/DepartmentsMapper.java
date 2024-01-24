@@ -28,9 +28,9 @@ public interface DepartmentsMapper {
     List<Departments> getAll();
 
     @Insert("INSERT INTO departments (id, addresses_id, open_time, close_time) " +
-            "VALUES (#{id}, #{address.id}, #{openTime}, #{closeTime}) AS new" +
+            "VALUES (#{id}, #{address.id}, #{openTime}, #{closeTime}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE departments SET addresses_id = new.addresses_id, " +
+            "UPDATE addresses_id = new.addresses_id, " +
             "open_time = new.open_time, close_time = new.close_time")
     void save(Departments department);
 

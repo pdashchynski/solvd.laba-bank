@@ -87,7 +87,7 @@ public class JDBCTransactionsDAOImpl implements TransactionsDAO {
             String sql = "INSERT INTO transactions (id, type, amount, currency, date_time, staff_id, services_id) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE transactions SET type = new.type, amount = new.amount " +
+                    "UPDATE type = new.type, amount = new.amount " +
                     "currency = new.currency, date_time = new.date_time, " +
                     "staff_id = new.staff_id, services_id = new.services_id";
             PreparedStatement ps = connection.prepareStatement(sql);
