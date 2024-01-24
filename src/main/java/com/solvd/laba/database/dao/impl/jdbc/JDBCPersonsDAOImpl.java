@@ -87,7 +87,7 @@ public class JDBCPersonsDAOImpl implements PersonsDAO {
             connection = ConnectionPool.getConnection();
 
             String sql = "INSERT INTO persons (id, first_name, middle_name, last_name, age, date_of_birth, gender, addresses_id) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
                     "UPDATE persons SET first_name = new.first_name, " +
                     "middle_name = new.middle_name, last_name = new.last_name, age = new.age, " +

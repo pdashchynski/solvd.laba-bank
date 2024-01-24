@@ -74,9 +74,9 @@ public class JDBCAddressesDAOImpl implements AddressesDAO {
             connection = ConnectionPool.getConnection();
 
             String sql = "INSERT INTO addresses (id, country, city, postal_code) " +
-                    "VALUES (?, ?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE addresses SET country = new.country, city = new.city, postal_code = new.postal_code";
+                    "UPDATE country = new.country, city = new.city, postal_code = new.postal_code";
             PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setInt(1, address.getId());

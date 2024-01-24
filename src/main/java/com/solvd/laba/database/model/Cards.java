@@ -1,5 +1,9 @@
 package com.solvd.laba.database.model;
 
+import com.solvd.laba.parsing.xml.jaxb.DateAdapter;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.sql.Date;
 
 public class Cards {

@@ -79,7 +79,7 @@ public class JDBCClientsDAOImpl implements ClientsDAO {
             connection = ConnectionPool.getConnection();
 
             String sql = "INSERT INTO clients (id, persons_id, status) " +
-                    "VALUES (?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
                     "UPDATE clients SET persons_id = new.persons_id, status = new.status";
             PreparedStatement ps = connection.prepareStatement(sql);
