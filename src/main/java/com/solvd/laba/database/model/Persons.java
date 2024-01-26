@@ -1,7 +1,15 @@
 package com.solvd.laba.database.model;
 
+import com.solvd.laba.parsing.xml.jaxb.DateAdapter;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.sql.Date;
 
+@XmlRootElement(name = "person")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Persons {
 
     private int id;
@@ -9,6 +17,7 @@ public class Persons {
     private String middleName;
     private String lastName;
     private short age;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date dateOfBirth;
     private String gender;
     private Addresses address;

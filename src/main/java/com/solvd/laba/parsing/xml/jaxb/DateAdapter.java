@@ -4,7 +4,7 @@ import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 public class DateAdapter extends XmlAdapter<String, Date> {
 
@@ -17,6 +17,6 @@ public class DateAdapter extends XmlAdapter<String, Date> {
 
     @Override
     public Date unmarshal(String v) throws ParseException {
-        return new SimpleDateFormat(CUSTOM_FORMAT_STRING).parse(v);
+        return (Date) new SimpleDateFormat(CUSTOM_FORMAT_STRING).parse(v);
     }
 }

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
     <xs:annotation>
         <xs:appinfo>
-            <jaxb:bindings version="2.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <jaxb:bindings>
                 <jaxb:globalBindings>
-                    <jaxb:javaType name="java.sql.Date" xmlType="xs:date" parseMethod="src/main/java/com/solvd/laba/parsing/xml/jaxb/DateAdapter.java"/>
+                    <jaxb:javaType name="java.sql.Date" xmlType="xs:date" hasNsContext="false"
+                                   printMethod="com.solvd.laba.parsing.xml.jaxb.DateAdapter.marshal"
+                                   parseMethod="com.solvd.laba.parsing.xml.jaxb.DateAdapter.unmarshal"/>
                 </jaxb:globalBindings>
             </jaxb:bindings>
         </xs:appinfo>

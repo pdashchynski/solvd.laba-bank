@@ -13,7 +13,9 @@ import java.sql.Date;
 public class Accounts {
 
     private int id;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date fromDate;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date toDate;
     private int balance;
     private String currency;
