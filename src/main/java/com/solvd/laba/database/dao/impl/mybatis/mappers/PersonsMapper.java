@@ -36,9 +36,9 @@ public interface PersonsMapper {
     List<Persons> getAll();
 
     @Insert("INSERT INTO persons (id, first_name, middle_name, last_name, age, date_of_birth, gender, addresses_id) " +
-            "VALUES (#{id}, #{firstName}, #{middleName}, #{lastName}, #{age}, #{dateOfBirth}, #{gender}, #{address.id}) AS new" +
+            "VALUES (#{id}, #{firstName}, #{middleName}, #{lastName}, #{age}, #{dateOfBirth}, #{gender}, #{address.id}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE persons SET first_name = new.first_name, " +
+            "UPDATE first_name = new.first_name, " +
             "middle_name = new.middle_name, last_name = new.last_name, age = new.age, " +
             "date_of_birth = new.date_of_birth, gender = new.gender, addresses_id = new.addresses_id")
     void save(Persons person);

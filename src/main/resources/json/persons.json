@@ -1,10 +1,10 @@
 {
   "id": 7,
-  "first_name": "Wojciech",
-  "middle_name": "",
-  "last_name": "Szczesny",
+  "firstName": "Wojciech",
+  "middleName": "",
+  "lastName": "Szczesny",
   "age": "33",
-  "date_of_birth": "1990-04-18",
+  "dateOfBirth": "1990-04-18",
   "gender": "Male",
-  "addresses_id": "6"
+  "addressesId": "6"
 }

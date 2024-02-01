@@ -83,9 +83,9 @@ public class JDBCStaffDAOImpl implements StaffDAO {
             connection = ConnectionPool.getConnection();
 
             String sql = "INSERT INTO staff (id, date_hired, position, salary, persons_id, departments_id) " +
-                    "VALUES (?, ?, ?, ?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE staff SET date_hired = new.date_hired, position = new.position " +
+                    "UPDATE date_hired = new.date_hired, position = new.position " +
                     "salary = new.salary, persons_id = new.persons_id, departments_id = new.departments_id";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, staff.getId());

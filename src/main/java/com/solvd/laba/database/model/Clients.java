@@ -1,5 +1,7 @@
 package com.solvd.laba.database.model;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 public class Clients {
 
     private int id;

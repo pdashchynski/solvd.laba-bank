@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addresses>
+    <address>
+        <id>6</id>
+        <country>Sweden</country>
+        <city>Malmo</city>
+        <postalCode>211 10</postalCode>
+    </address>
+
+    <address>
+        <id>7</id>
+        <country>Spain</country>
+        <city>Madrid</city>
+        <postalCode>28001</postalCode>
+    </address>
+</addresses>

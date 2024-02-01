@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="accounts.xsd"/>
+
+    <xs:element name="card" type="CardType"/>
+
+    <xs:complexType name="CardType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="fromDate" type="xs:date"/>
+            <xs:element name="toDate" type="xs:date"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:choice>
+                <xs:element name="accountId" type="xs:integer"/>
+                <xs:element name="Account" type="AccountType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CardsType">
+        <xs:sequence>
+            <xs:element name="card" type="CardType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

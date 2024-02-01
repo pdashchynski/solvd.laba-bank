@@ -82,9 +82,9 @@ public class JDBCAccountsDAOImpl implements AccountsDAO {
 
             String sql = "INSERT INTO accounts (id, from_date, to_date, balance, currency, " +
                     "clients_id, clients_persons_id) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE accounts SET from_date = new.from_date, to_date = new.to_date, " +
+                    "UPDATE from_date = new.from_date, to_date = new.to_date, " +
                     "balance = new.balance, currency = new.currency, " +
                     "clients_id = new.clients_id, clients_persons_id = new.clients_persons_id";
             PreparedStatement ps = connection.prepareStatement(sql);

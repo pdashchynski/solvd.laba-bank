@@ -1,7 +1,15 @@
 package com.solvd.laba.database.model;
 
+import com.solvd.laba.parsing.xml.jaxb.DateAdapter;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.sql.Date;
 
+@XmlRootElement(name = "person")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Persons {
 
     private int id;
@@ -9,6 +17,7 @@ public class Persons {
     private String middleName;
     private String lastName;
     private short age;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date dateOfBirth;
     private String gender;
     private Addresses address;
@@ -103,5 +112,47 @@ public class Persons {
                 ", gender='" + gender + '\'' +
                 ", address=" + address +
                 '}';
+    }
+
+    private Persons(PersonsBuilder builder) {
+        this.id = builder.id;
+        this.firstName = builder.firstName;
+        this.middleName = builder.middleName;
+        this.lastName = builder.lastName;
+        this.age = builder.age;
+        this.dateOfBirth = builder.dateOfBirth;
+        this.gender = builder.gender;
+        this.address = builder.address;
+    }
+
+    public static class PersonsBuilder {
+        private int id;
+        private String firstName;
+        private String lastName;
+        private short age;
+        private Date dateOfBirth;
+        private String gender;
+        private Addresses address;
+        private String middleName;
+
+        public PersonsBuilder (int id, String firstName, String lastName, short age,
+                        Date dateOfBirth, String gender, Addresses address) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.dateOfBirth = dateOfBirth;
+            this.gender = gender;
+            this.address = address;
+        }
+
+        public PersonsBuilder setMiddleName(String middleName) {
+            this.middleName = middleName;
+            return this;
+        }
+
+        public Persons build() {
+            return new Persons(this);
+        }
     }
 }

@@ -32,9 +32,9 @@ public interface CardsMapper {
     @Insert("INSERT INTO cards (id, from_date, to_date, type, " +
             "accounts_id, accounts_clients_id, accounts_clients_persons_id) " +
             "VALUES (#{id}, #{fromDate}, #{toDate}, #{type}, " +
-            "#{account.id}, #{account.clients_id}, #{account.clients_persons_id}) AS new" +
+            "#{account.id}, #{account.clients_id}, #{account.clients_persons_id}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE cards SET from_date = new.from_date, to_date = new.to_date, " +
+            "UPDATE from_date = new.from_date, to_date = new.to_date, " +
             "type = new.type, " +
             "accounts_id = new.accounts_id, " +
             "accounts_clients_id = new.accounts_clients_id, " +

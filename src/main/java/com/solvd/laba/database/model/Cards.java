@@ -1,11 +1,21 @@
 package com.solvd.laba.database.model;
 
+import com.solvd.laba.parsing.xml.jaxb.DateAdapter;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.sql.Date;
 
+@XmlRootElement(name = "card")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cards {
 
     private int id;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date fromDate;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date toDate;
     private String type;
     private Accounts account;

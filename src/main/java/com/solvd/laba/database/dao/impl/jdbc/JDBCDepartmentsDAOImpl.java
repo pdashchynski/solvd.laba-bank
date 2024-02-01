@@ -78,9 +78,9 @@ public class JDBCDepartmentsDAOImpl implements DepartmentsDAO {
             connection = ConnectionPool.getConnection();
 
             String sql = "INSERT INTO departments (id, addresses_id, open_time, close_time) " +
-                    "VALUES (?, ?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE departments SET addresses_id = new.addresses_id, " +
+                    "UPDATE addresses_id = new.addresses_id, " +
                     "open_time = new.open_time, close_time = new.close_time";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, department.getId());

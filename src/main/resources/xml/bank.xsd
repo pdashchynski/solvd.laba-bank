@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:bindings>
+                <jaxb:globalBindings>
+                    <jaxb:javaType name="java.sql.Date" xmlType="xs:date" hasNsContext="false"
+                                   printMethod="com.solvd.laba.parsing.xml.jaxb.DateAdapter.marshal"
+                                   parseMethod="com.solvd.laba.parsing.xml.jaxb.DateAdapter.unmarshal"/>
+                </jaxb:globalBindings>
+            </jaxb:bindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+    <xs:element name="bank">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accounts" type="AccountsType"/>
+                <xs:element name="addresses" type="AddressesType"/>
+                <xs:element name="cards" type="CardsType"/>
+                <xs:element name="clients" type="ClientsType"/>
+                <xs:element name="persons" type="PersonsType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="AccountType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="fromDate" type="xs:date"/>
+            <xs:element name="toDate" type="xs:date"/>
+            <xs:element name="balance" type="xs:integer"/>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="clientId" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AccountsType">
+        <xs:sequence>
+            <xs:element name="account" type="AccountType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="country" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="postalCode" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AddressesType">
+        <xs:sequence>
+            <xs:element name="address" type="AddressType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CardType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="fromDate" type="xs:date"/>
+            <xs:element name="toDate" type="xs:date"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="accountId" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CardsType">
+        <xs:sequence>
+            <xs:element name="card" type="CardType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ClientType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="personsId" type="xs:integer"/>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ClientsType">
+        <xs:sequence>
+            <xs:element name="client" type="ClientType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PersonType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="middleName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="age" type="xs:integer"/>
+            <xs:element name="dateOfBirth" type="xs:date"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="addressesId" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PersonsType">
+        <xs:sequence>
+            <xs:element name="person" type="PersonType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

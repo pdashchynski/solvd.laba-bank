@@ -77,9 +77,9 @@ public class JDBCPassportsDAOImpl implements PassportsDAO {
             connection = ConnectionPool.getConnection();
 
             String sql = "INSERT INTO passports (id, from_date, to_date, persons_id) " +
-                    "VALUES (?, ?, ?, ?) AS new" +
+                    "VALUES (?, ?, ?, ?) AS new " +
                     "ON DUPLICATE KEY " +
-                    "UPDATE passports SET from_date = new.from_date, " +
+                    "UPDATE from_date = new.from_date, " +
                     "to_date = new.to_date, persons_id = new.persons_id";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, passport.getId());

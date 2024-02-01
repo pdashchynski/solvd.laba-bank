@@ -28,9 +28,9 @@ public interface PassportsMapper {
     List<Passports> getAll();
 
     @Insert("INSERT INTO passports (id, from_date, to_date, persons_id) " +
-            "VALUES (#{id}, #{fromDate}, #{toDate}, #{person.id}) AS new" +
+            "VALUES (#{id}, #{fromDate}, #{toDate}, #{person.id}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE passports SET from_date = new.from_date, " +
+            "UPDATE from_date = new.from_date, " +
             "to_date = new.to_date, persons_id = new.persons_id")
     void save(Passports passport);
 

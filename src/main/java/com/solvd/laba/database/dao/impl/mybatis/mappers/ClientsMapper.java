@@ -26,9 +26,9 @@ public interface ClientsMapper {
     List<Clients> getAll();
 
     @Insert("INSERT INTO clients (id, persons_id, status) " +
-            "VALUES (#{id}, #{person.id},  #{status}) AS new" +
+            "VALUES (#{id}, #{person.id},  #{status}) AS new " +
             "ON DUPLICATE KEY " +
-            "UPDATE clients SET persons_id = new.persons_id, status = new.status")
+            "UPDATE persons_id = new.persons_id, status = new.status")
     void save(Clients client);
 
     @Insert("INSERT INTO clients (id, persons_id, status) " +

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="bank.xsd">
+    <accounts>
+        <account>
+            <id>4</id>
+            <fromDate>2016-06-16</fromDate>
+            <toDate>2026-06-16</toDate>
+            <balance>5000</balance>
+            <currency>USD</currency>
+            <clientId>3</clientId>
+        </account>
+
+        <account>
+            <id>5</id>
+            <fromDate>2018-08-18</fromDate>
+            <toDate>2028-08-18</toDate>
+            <balance>500</balance>
+            <currency>USD</currency>
+            <clientId>1</clientId>
+        </account>
+    </accounts>
+
+    <addresses>
+        <address>
+            <id>6</id>
+            <country>Sweden</country>
+            <city>Malmo</city>
+            <postalCode>211 10</postalCode>
+        </address>
+
+        <address>
+            <id>7</id>
+            <country>Spain</country>
+            <city>Madrid</city>
+            <postalCode>28001</postalCode>
+        </address>
+    </addresses>
+
+    <cards>
+        <card>
+            <id>5</id>
+            <fromDate>2016-06-16</fromDate>
+            <toDate>2026-06-16</toDate>
+            <type>Credit</type>
+            <accountId>1</accountId>
+        </card>
+
+        <card>
+            <id>6</id>
+            <fromDate>2016-06-16</fromDate>
+            <toDate>2026-06-16</toDate>
+            <type>Debit</type>
+            <accountId>1</accountId>
+        </card>
+    </cards>
+
+    <clients>
+        <client>
+            <id>4</id>
+            <personsId>7</personsId>
+            <status>VIP</status>
+        </client>
+
+        <client>
+            <id>5</id>
+            <personsId>8</personsId>
+            <status>VIP</status>
+        </client>
+    </clients>
+
+    <persons>
+        <person>
+            <id>7</id>
+            <firstName>Olof</firstName>
+            <middleName></middleName>
+            <lastName>Mellberg</lastName>
+            <age>46</age>
+            <dateOfBirth>1977-09-03</dateOfBirth>
+            <gender>Male</gender>
+            <addressesId>8</addressesId>
+        </person>
+
+        <person>
+            <id>8</id>
+            <firstName>Jose</firstName>
+            <middleName>Manuel</middleName>
+            <lastName>Reina</lastName>
+            <age>41</age>
+            <dateOfBirth>1982-08-31</dateOfBirth>
+            <gender>Male</gender>
+            <addressesId>9</addressesId>
+        </person>
+    </persons>
+</bank>

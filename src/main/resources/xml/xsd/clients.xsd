@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="persons.xsd"/>
+
+    <xs:element name="client" type="ClientType"/>
+
+    <xs:complexType name="ClientType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:choice>
+            <xs:element name="personsId" type="xs:integer"/>
+            <xs:element name="Person" type="PersonType"/>
+            </xs:choice>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ClientsType">
+        <xs:sequence>
+            <xs:element name="client" type="ClientType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
